@@ -1,0 +1,5 @@
+data/raw/
+*.csv
+*.zip
+venv/
+.venv/
