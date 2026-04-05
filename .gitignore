@@ -3,3 +3,4 @@ data/raw/
 *.zip
 venv/
 .venv/
+*.pkl
