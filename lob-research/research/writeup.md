@@ -114,6 +114,8 @@ Identical to LOBAttention but with $\alpha_{t,i} = 1/L$ (fixed uniform weights).
 
 *Cohen's κ on May 13 test session. Higher is better; 0 = random.*
 
+![Alt text](./model_comparison.png)
+
 **Key findings:**
 
 1. **LOBAttention dominates across all horizons.** It outperforms DeepLOB by 2.6–5.2 kappa points, and outperforms LogisticRegression by 1.9–3.0 points.
@@ -144,6 +146,8 @@ To further isolate this structural advantage, future work should evaluate a full
 ---
 
 ## 7. Attention Weight Analysis
+
+![Alt text](./attention_analysis.png)
 
 Given the results of the ablation study, the analysis of attention weights pivots from interpreting dynamic market behavior to understanding why fixed uniform weights generalize better to out of sample data.
 
