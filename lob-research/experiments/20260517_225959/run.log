@@ -1,0 +1,188 @@
+2026-05-17 18:59:59.563 | INFO     | __main__:run_experiment:94 - Experiment started | output=experiments/20260517_225959
+2026-05-17 18:59:59.563 | INFO     | __main__:run_experiment:95 - Args: {'symbols': ['BTCUSDT', 'ETHUSDT'], 'use_sim': True, 'horizons': [20], 'alpha': 0.0001, 'seq_len': 50, 'epochs': 5, 'lr': 0.001, 'patience': 10, 'batch_size': 512}
+2026-05-17 18:59:59.563 | INFO     | __main__:run_experiment:101 - Using synthetic data (--use-sim flag)
+2026-05-17 18:59:59.619 | INFO     | __main__:load_data:64 - Loaded 50,000 rows from data/raw/BTCUSDT_SIM/2026-05-13.parquet
+2026-05-17 18:59:59.624 | INFO     | __main__:load_data:76 - Combined dataset: 50,000 rows | symbols=['BTCUSDT_SIM'] | columns=47
+2026-05-17 18:59:59.624 | INFO     | __main__:run_experiment:111 - Computing features...
+2026-05-17 18:59:59.732 | INFO     | src.features.engineering:compute_features:257 - Feature engineering complete | input_cols=47 | output_cols=88 | new_features=41
+2026-05-17 18:59:59.732 | INFO     | __main__:run_experiment:114 - Computing labels (horizons=[20])...
+2026-05-17 19:00:00.057 | INFO     | src.features.engineering:compute_labels:96 - Labels k= 20: up=20,993 (42.0%) | flat= 7,611 (15.2%) | down=21,376 (42.8%)
+2026-05-17 19:00:00.698 | INFO     | __main__:run_experiment:121 - Feature matrix saved → data/features/features_20260517_225959.parquet
+2026-05-17 19:00:00.698 | INFO     | __main__:run_experiment:129 - 
+============================================================
+2026-05-17 19:00:00.698 | INFO     | __main__:run_experiment:130 - Running experiments for horizon k=20
+2026-05-17 19:00:00.699 | INFO     | __main__:run_experiment:131 - ============================================================
+2026-05-17 19:00:00.958 | INFO     | src.features.engineering:build_dataset:377 - Dataset built | horizon=k20 | seq_len=50 | features=41 | train=34,944 | val=7,488 | test=7,489
+2026-05-17 19:00:00.959 | INFO     | src.features.engineering:build_dataset:390 -   train class distribution: {-1: 14899, 0: 5270, 1: 14775}
+2026-05-17 19:00:00.959 | INFO     | src.features.engineering:build_dataset:390 -   val class distribution: {-1: 3279, 0: 1140, 1: 3069}
+2026-05-17 19:00:00.959 | INFO     | src.features.engineering:build_dataset:390 -   test class distribution: {-1: 3173, 0: 1194, 1: 3122}
+2026-05-17 19:00:00.964 | INFO     | __main__:run_experiment:152 - Running sklearn baselines...
+2026-05-17 19:00:00.964 | INFO     | src.models.baselines:run_logistic_regression:97 - Running Logistic Regression baseline...
+2026-05-17 19:00:04.243 | INFO     | src.models.baselines:evaluate:63 - 
+==================================================
+2026-05-17 19:00:04.246 | INFO     | src.models.baselines:evaluate:64 - Model: LogisticRegression [val]
+2026-05-17 19:00:04.246 | INFO     | src.models.baselines:evaluate:65 - Cohen's Kappa:  0.0173
+2026-05-17 19:00:04.246 | INFO     | src.models.baselines:evaluate:66 - Macro F1:       0.3307
+2026-05-17 19:00:04.246 | INFO     | src.models.baselines:evaluate:67 - F1 per class:   down=0.4418 | flat=0.1717 | up=0.3787
+2026-05-17 19:00:04.246 | INFO     | src.models.baselines:evaluate:68 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.46      0.43      0.44      3279
+        flat       0.13      0.24      0.17      1140
+          up       0.43      0.34      0.38      3069
+
+    accuracy                           0.36      7488
+   macro avg       0.34      0.33      0.33      7488
+weighted avg       0.40      0.36      0.37      7488
+
+2026-05-17 19:00:04.246 | INFO     | src.models.baselines:evaluate:69 - Confusion Matrix:
+[[1394  916  969]
+ [ 492  277  371]
+ [1146  893 1030]]
+2026-05-17 19:00:04.270 | INFO     | src.models.baselines:evaluate:63 - 
+==================================================
+2026-05-17 19:00:04.271 | INFO     | src.models.baselines:evaluate:64 - Model: LogisticRegression [test]
+2026-05-17 19:00:04.271 | INFO     | src.models.baselines:evaluate:65 - Cohen's Kappa:  0.0454
+2026-05-17 19:00:04.271 | INFO     | src.models.baselines:evaluate:66 - Macro F1:       0.3531
+2026-05-17 19:00:04.271 | INFO     | src.models.baselines:evaluate:67 - F1 per class:   down=0.4446 | flat=0.2008 | up=0.4141
+2026-05-17 19:00:04.271 | INFO     | src.models.baselines:evaluate:68 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.47      0.42      0.44      3173
+        flat       0.16      0.27      0.20      1194
+          up       0.45      0.39      0.41      3122
+
+    accuracy                           0.38      7489
+   macro avg       0.36      0.36      0.35      7489
+weighted avg       0.41      0.38      0.39      7489
+
+2026-05-17 19:00:04.272 | INFO     | src.models.baselines:evaluate:69 - Confusion Matrix:
+[[1337  784 1052]
+ [ 448  317  429]
+ [1057  863 1202]]
+2026-05-17 19:00:04.272 | INFO     | src.models.baselines:run_mlp:147 - Running MLP baseline...
+2026-05-17 19:00:42.094 | INFO     | src.models.baselines:run_mlp:178 - MLP converged after 12 iterations
+2026-05-17 19:00:42.209 | INFO     | src.models.baselines:evaluate:63 - 
+==================================================
+2026-05-17 19:00:42.209 | INFO     | src.models.baselines:evaluate:64 - Model: MLP [val]
+2026-05-17 19:00:42.209 | INFO     | src.models.baselines:evaluate:65 - Cohen's Kappa:  0.0272
+2026-05-17 19:00:42.209 | INFO     | src.models.baselines:evaluate:66 - Macro F1:       0.3173
+2026-05-17 19:00:42.209 | INFO     | src.models.baselines:evaluate:67 - F1 per class:   down=0.4901 | flat=0.0000 | up=0.4617
+2026-05-17 19:00:42.209 | INFO     | src.models.baselines:evaluate:68 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.45      0.54      0.49      3279
+        flat       0.00      0.00      0.00      1140
+          up       0.43      0.50      0.46      3069
+
+    accuracy                           0.44      7488
+   macro avg       0.29      0.35      0.32      7488
+weighted avg       0.37      0.44      0.40      7488
+
+2026-05-17 19:00:42.209 | INFO     | src.models.baselines:evaluate:69 - Confusion Matrix:
+[[1772    1 1506]
+ [ 638    0  502]
+ [1542    3 1524]]
+2026-05-17 19:00:42.313 | INFO     | src.models.baselines:evaluate:63 - 
+==================================================
+2026-05-17 19:00:42.313 | INFO     | src.models.baselines:evaluate:64 - Model: MLP [test]
+2026-05-17 19:00:42.314 | INFO     | src.models.baselines:evaluate:65 - Cohen's Kappa:  0.0495
+2026-05-17 19:00:42.314 | INFO     | src.models.baselines:evaluate:66 - Macro F1:       0.3248
+2026-05-17 19:00:42.314 | INFO     | src.models.baselines:evaluate:67 - F1 per class:   down=0.5068 | flat=0.0000 | up=0.4675
+2026-05-17 19:00:42.314 | INFO     | src.models.baselines:evaluate:68 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.45      0.58      0.51      3173
+        flat       0.00      0.00      0.00      1194
+          up       0.45      0.49      0.47      3122
+
+    accuracy                           0.45      7489
+   macro avg       0.30      0.36      0.32      7489
+weighted avg       0.38      0.45      0.41      7489
+
+2026-05-17 19:00:42.316 | INFO     | src.models.baselines:evaluate:69 - Confusion Matrix:
+[[1838    2 1333]
+ [ 647    0  547]
+ [1595    1 1526]]
+2026-05-17 19:00:42.327 | INFO     | src.models.baselines:run_baselines:218 - Baseline results saved → experiments/20260517_225959/baselines_20260517_230042.json
+2026-05-17 19:00:42.327 | INFO     | src.models.baselines:run_baselines:221 - 
+{'='*50}
+2026-05-17 19:00:42.328 | INFO     | src.models.baselines:run_baselines:222 - BASELINE COMPARISON (test set)
+2026-05-17 19:00:42.328 | INFO     | src.models.baselines:run_baselines:223 - Model                        Kappa  MacroF1  F1-down    F1-up
+2026-05-17 19:00:42.328 | INFO     | src.models.baselines:run_baselines:224 - ------------------------------------------------------------
+2026-05-17 19:00:42.329 | INFO     | src.models.baselines:run_baselines:227 - logistic_regression         0.0454   0.3531   0.4446   0.4141
+2026-05-17 19:00:42.329 | INFO     | src.models.baselines:run_baselines:227 - mlp                         0.0495   0.3248   0.5068   0.4675
+2026-05-17 19:00:42.550 | INFO     | __main__:run_experiment:170 - Training DeepLOB...
+2026-05-17 19:00:42.584 | INFO     | src.models.architectures:build_model:440 - Built DeepLOB | params=77,248
+2026-05-17 19:00:42.962 | INFO     | src.models.trainer:get_device:33 - Using GPU: NVIDIA GeForce GTX 1650
+2026-05-17 19:00:44.875 | INFO     | src.models.trainer:train:148 - Training DeepLOB_k20 | epochs=5 | patience=10 | device=cuda
+2026-05-17 19:00:58.574 | INFO     | src.models.trainer:train:197 - Epoch   1/5 | train_loss=1.1010 | val_loss=1.0989 | val_kappa=0.0077 | val_f1=0.3232 | lr=9.05e-04 | time=13.7s
+2026-05-17 19:00:58.587 | INFO     | src.models.trainer:train:216 -   ✓ New best kappa=0.0077 — checkpoint saved
+2026-05-17 19:01:13.492 | INFO     | src.models.trainer:train:197 - Epoch   2/5 | train_loss=1.0978 | val_loss=1.1010 | val_kappa=-0.0152 | val_f1=0.2665 | lr=6.55e-04 | time=14.9s
+2026-05-17 19:01:31.845 | INFO     | src.models.trainer:train:197 - Epoch   3/5 | train_loss=1.0935 | val_loss=1.1021 | val_kappa=-0.0106 | val_f1=0.2989 | lr=3.46e-04 | time=18.4s
+2026-05-17 19:01:52.139 | INFO     | src.models.trainer:train:197 - Epoch   4/5 | train_loss=1.0815 | val_loss=1.1103 | val_kappa=-0.0122 | val_f1=0.3035 | lr=9.64e-05 | time=20.3s
+2026-05-17 19:02:15.397 | INFO     | src.models.trainer:train:197 - Epoch   5/5 | train_loss=1.0492 | val_loss=1.1159 | val_kappa=-0.0086 | val_f1=0.3020 | lr=1.00e-06 | time=23.3s
+2026-05-17 19:02:15.409 | INFO     | src.models.trainer:train:229 - Restored best model (kappa=0.0077)
+2026-05-17 19:02:15.410 | INFO     | src.models.trainer:evaluate_test:240 - Evaluating DeepLOB_k20 on test set...
+2026-05-17 19:02:16.183 | INFO     | src.models.trainer:evaluate_test:267 - 
+Test Results — DeepLOB_k20
+2026-05-17 19:02:16.183 | INFO     | src.models.trainer:evaluate_test:268 - Kappa:    0.0041
+2026-05-17 19:02:16.183 | INFO     | src.models.trainer:evaluate_test:269 - Macro F1: 0.3246
+2026-05-17 19:02:16.183 | INFO     | src.models.trainer:evaluate_test:270 - 
+              precision    recall  f1-score   support
+
+        down       0.42      0.23      0.30      3173
+        flat       0.17      0.26      0.21      1194
+          up       0.42      0.53      0.47      3122
+
+    accuracy                           0.36      7489
+   macro avg       0.34      0.34      0.32      7489
+weighted avg       0.38      0.36      0.35      7489
+
+2026-05-17 19:02:16.184 | INFO     | src.models.trainer:evaluate_test:277 - Test results saved → experiments/20260517_225959/DeepLOB_k20_test_20260517_230216.json
+2026-05-17 19:02:16.184 | INFO     | __main__:run_experiment:196 - Training LevelConditionalAttention...
+2026-05-17 19:02:16.186 | INFO     | src.models.architectures:build_model:440 - Built LevelConditionalAttention | params=82,637
+2026-05-17 19:02:16.186 | INFO     | src.models.trainer:get_device:33 - Using GPU: NVIDIA GeForce GTX 1650
+2026-05-17 19:02:16.188 | INFO     | src.models.trainer:train:148 - Training LOBAttention_k20 | epochs=5 | patience=10 | device=cuda
+2026-05-17 19:02:20.286 | INFO     | src.models.trainer:train:197 - Epoch   1/5 | train_loss=1.0994 | val_loss=1.0988 | val_kappa=-0.0004 | val_f1=0.2210 | lr=9.05e-04 | time=4.1s
+2026-05-17 19:02:20.294 | INFO     | src.models.trainer:train:216 -   ✓ New best kappa=-0.0004 — checkpoint saved
+2026-05-17 19:02:23.964 | INFO     | src.models.trainer:train:197 - Epoch   2/5 | train_loss=1.0989 | val_loss=1.0985 | val_kappa=0.0138 | val_f1=0.3067 | lr=6.55e-04 | time=3.7s
+2026-05-17 19:02:23.974 | INFO     | src.models.trainer:train:216 -   ✓ New best kappa=0.0138 — checkpoint saved
+2026-05-17 19:02:27.958 | INFO     | src.models.trainer:train:197 - Epoch   3/5 | train_loss=1.0986 | val_loss=1.0984 | val_kappa=0.0307 | val_f1=0.3258 | lr=3.46e-04 | time=4.0s
+2026-05-17 19:02:27.961 | INFO     | src.models.trainer:train:216 -   ✓ New best kappa=0.0307 — checkpoint saved
+2026-05-17 19:02:32.771 | INFO     | src.models.trainer:train:197 - Epoch   4/5 | train_loss=1.0984 | val_loss=1.0984 | val_kappa=0.0201 | val_f1=0.3347 | lr=9.64e-05 | time=4.8s
+2026-05-17 19:02:36.938 | INFO     | src.models.trainer:train:197 - Epoch   5/5 | train_loss=1.0982 | val_loss=1.0984 | val_kappa=0.0113 | val_f1=0.3350 | lr=1.00e-06 | time=4.2s
+2026-05-17 19:02:36.941 | INFO     | src.models.trainer:train:229 - Restored best model (kappa=0.0307)
+2026-05-17 19:02:36.941 | INFO     | src.models.trainer:evaluate_test:240 - Evaluating LOBAttention_k20 on test set...
+2026-05-17 19:02:37.858 | INFO     | src.models.trainer:evaluate_test:267 - 
+Test Results — LOBAttention_k20
+2026-05-17 19:02:37.858 | INFO     | src.models.trainer:evaluate_test:268 - Kappa:    -0.0057
+2026-05-17 19:02:37.858 | INFO     | src.models.trainer:evaluate_test:269 - Macro F1: 0.2992
+2026-05-17 19:02:37.858 | INFO     | src.models.trainer:evaluate_test:270 - 
+              precision    recall  f1-score   support
+
+        down       0.42      0.72      0.53      3173
+        flat       0.16      0.05      0.08      1194
+          up       0.40      0.23      0.29      3122
+
+    accuracy                           0.41      7489
+   macro avg       0.33      0.33      0.30      7489
+weighted avg       0.37      0.41      0.36      7489
+
+2026-05-17 19:02:37.858 | INFO     | src.models.trainer:evaluate_test:277 - Test results saved → experiments/20260517_225959/LOBAttention_k20_test_20260517_230237.json
+2026-05-17 19:02:37.859 | INFO     | __main__:run_experiment:218 - 
+============================================================
+2026-05-17 19:02:37.859 | INFO     | __main__:run_experiment:219 - RESULTS SUMMARY — horizon k=20
+2026-05-17 19:02:37.859 | INFO     | __main__:run_experiment:220 - Model                             Kappa  MacroF1  F1-down    F1-up
+2026-05-17 19:02:37.859 | INFO     | __main__:run_experiment:221 - ------------------------------------------------------------
+2026-05-17 19:02:37.859 | INFO     | __main__:_row:227 - LogisticRegression               0.0454   0.3531   0.4446   0.4141
+2026-05-17 19:02:37.859 | INFO     | __main__:_row:227 - MLP                              0.0495   0.3248   0.5068   0.4675
+2026-05-17 19:02:37.859 | INFO     | __main__:_row:227 - DeepLOB                          0.0041   0.3246   0.3001   0.4663
+2026-05-17 19:02:37.860 | INFO     | __main__:_row:227 - LOBAttention                    -0.0057   0.2992   0.5329   0.2886
+2026-05-17 19:02:37.860 | INFO     | __main__:run_experiment:257 - 
+All results saved → experiments/20260517_225959/all_results.json
+2026-05-17 19:02:37.860 | INFO     | __main__:run_experiment:258 - Experiment complete | dir=experiments/20260517_225959

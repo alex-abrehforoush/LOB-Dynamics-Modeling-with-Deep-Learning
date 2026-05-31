@@ -1,0 +1,126 @@
+{
+  "logistic_regression": {
+    "val": {
+      "model": "LogisticRegression [val]",
+      "kappa": 0.0866,
+      "macro_f1": 0.3074,
+      "f1_down": 0.177,
+      "f1_flat": 0.5484,
+      "f1_up": 0.1966,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          583,
+          183,
+          282
+        ],
+        [
+          4470,
+          5659,
+          4480
+        ],
+        [
+          486,
+          186,
+          665
+        ]
+      ]
+    },
+    "test": {
+      "model": "LogisticRegression [test]",
+      "kappa": 0.0326,
+      "macro_f1": 0.2582,
+      "f1_down": 0.0499,
+      "f1_flat": 0.6478,
+      "f1_up": 0.0767,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          187,
+          356,
+          854
+        ],
+        [
+          5804,
+          26249,
+          21975
+        ],
+        [
+          101,
+          402,
+          969
+        ]
+      ]
+    }
+  },
+  "mlp": {
+    "val": {
+      "model": "MLP [val]",
+      "kappa": 0.0311,
+      "macro_f1": 0.3519,
+      "f1_down": 0.0584,
+      "f1_flat": 0.8876,
+      "f1_up": 0.1097,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          53,
+          947,
+          48
+        ],
+        [
+          665,
+          13348,
+          596
+        ],
+        [
+          49,
+          1173,
+          115
+        ]
+      ]
+    },
+    "test": {
+      "model": "MLP [test]",
+      "kappa": 0.0104,
+      "macro_f1": 0.3349,
+      "f1_down": 0.0311,
+      "f1_flat": 0.9305,
+      "f1_up": 0.0429,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          59,
+          1228,
+          110
+        ],
+        [
+          2277,
+          49229,
+          2522
+        ],
+        [
+          58,
+          1324,
+          90
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,153 @@
+2026-05-23 22:18:30.835 | INFO     | __main__:run_experiment:94 - Experiment started | output=experiments/20260524_021830
+2026-05-23 22:18:30.835 | INFO     | __main__:run_experiment:95 - Args: {'symbols': ['BTCUSDT', 'ETHUSDT'], 'use_sim': False, 'horizons': [10, 20, 50], 'alpha': 0.0, 'seq_len': 100, 'epochs': 50, 'lr': 0.001, 'patience': 10, 'batch_size': 512}
+2026-05-23 22:18:30.926 | INFO     | __main__:load_data:64 - Loaded 28,603 rows from data/raw/BTCUSDT/2026-05-13.parquet
+2026-05-23 22:18:30.948 | INFO     | __main__:load_data:64 - Loaded 28,603 rows from data/raw/ETHUSDT/2026-05-13.parquet
+2026-05-23 22:18:30.985 | INFO     | __main__:load_data:76 - Combined dataset: 57,206 rows | symbols=['BTCUSDT', 'ETHUSDT'] | columns=47
+2026-05-23 22:18:30.985 | INFO     | __main__:run_experiment:111 - Computing features...
+2026-05-23 22:18:31.098 | INFO     | src.features.engineering:compute_features:273 - Feature engineering complete | input_cols=47 | output_cols=88 | new_features=41
+2026-05-23 22:18:31.098 | INFO     | __main__:run_experiment:114 - Computing labels (horizons=[10, 20, 50])...
+2026-05-23 22:18:31.509 | INFO     | src.features.engineering:compute_labels:89 - Auto-calibrated alpha for k=10: 17.109695 (targets 15% flat samples)
+2026-05-23 22:18:31.594 | INFO     | src.features.engineering:compute_labels:111 - Labels k= 10 (alpha=17.109695): up= 8,580 (15.0%) | flat=48,616 (85.0%) | down=     0 (0.0%)
+2026-05-23 22:18:31.961 | INFO     | src.features.engineering:compute_labels:89 - Auto-calibrated alpha for k=20: 17.109645 (targets 15% flat samples)
+2026-05-23 22:18:32.050 | INFO     | src.features.engineering:compute_labels:111 - Labels k= 20 (alpha=17.109645): up= 8,577 (15.0%) | flat=48,609 (85.0%) | down=     0 (0.0%)
+2026-05-23 22:18:32.409 | INFO     | src.features.engineering:compute_labels:89 - Auto-calibrated alpha for k=50: 17.109594 (targets 15% flat samples)
+2026-05-23 22:18:32.497 | INFO     | src.features.engineering:compute_labels:111 - Labels k= 50 (alpha=17.109594): up= 8,574 (15.0%) | flat=48,582 (84.9%) | down=     0 (0.0%)
+2026-05-23 22:18:32.999 | INFO     | __main__:run_experiment:126 - Feature matrix saved → data/features/features_20260524_021830.parquet
+2026-05-23 22:18:33.000 | INFO     | __main__:run_experiment:134 - 
+============================================================
+2026-05-23 22:18:33.000 | INFO     | __main__:run_experiment:135 - Running experiments for horizon k=10
+2026-05-23 22:18:33.000 | INFO     | __main__:run_experiment:136 - ============================================================
+2026-05-23 22:18:33.364 | INFO     | src.features.engineering:build_dataset:393 - Dataset built | horizon=k10 | seq_len=100 | features=41 | train=39,960 | val=8,563 | test=8,564
+2026-05-23 22:18:33.365 | INFO     | src.features.engineering:build_dataset:406 -   train class distribution: {0: 31434, 1: 8526}
+2026-05-23 22:18:33.365 | INFO     | src.features.engineering:build_dataset:406 -   val class distribution: {0: 8563}
+2026-05-23 22:18:33.365 | INFO     | src.features.engineering:build_dataset:406 -   test class distribution: {0: 8564}
+2026-05-23 22:18:33.370 | INFO     | __main__:run_experiment:157 - Running sklearn baselines...
+2026-05-23 22:18:33.370 | INFO     | src.models.baselines:run_logistic_regression:114 - Running Logistic Regression baseline...
+2026-05-23 22:18:36.346 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-23 22:18:36.346 | INFO     | src.models.baselines:evaluate:76 - Model: LogisticRegression [val]
+2026-05-23 22:18:36.346 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['flat', 'up']
+2026-05-23 22:18:36.346 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0000
+2026-05-23 22:18:36.347 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.3396
+2026-05-23 22:18:36.347 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    flat=0.6793 | up=0.0000
+2026-05-23 22:18:36.347 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        flat       1.00      0.51      0.68      8563
+          up       0.00      0.00      0.00         0
+
+    accuracy                           0.51      8563
+   macro avg       0.50      0.26      0.34      8563
+weighted avg       1.00      0.51      0.68      8563
+
+2026-05-23 22:18:36.348 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[4404 4159]
+ [   0    0]]
+2026-05-23 22:18:36.392 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-23 22:18:36.392 | INFO     | src.models.baselines:evaluate:76 - Model: LogisticRegression [test]
+2026-05-23 22:18:36.392 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['flat', 'up']
+2026-05-23 22:18:36.392 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0000
+2026-05-23 22:18:36.392 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.3343
+2026-05-23 22:18:36.392 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    flat=0.6686 | up=0.0000
+2026-05-23 22:18:36.392 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        flat       1.00      0.50      0.67      8564
+          up       0.00      0.00      0.00         0
+
+    accuracy                           0.50      8564
+   macro avg       0.50      0.25      0.33      8564
+weighted avg       1.00      0.50      0.67      8564
+
+2026-05-23 22:18:36.392 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[4301 4263]
+ [   0    0]]
+2026-05-23 22:18:36.392 | INFO     | src.models.baselines:run_mlp:163 - Running MLP baseline...
+2026-05-23 22:24:35.409 | INFO     | src.models.baselines:run_mlp:194 - MLP converged after 37 iterations
+2026-05-23 22:24:35.632 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-23 22:24:35.632 | INFO     | src.models.baselines:evaluate:76 - Model: MLP [val]
+2026-05-23 22:24:35.633 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['flat', 'up']
+2026-05-23 22:24:35.633 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0000
+2026-05-23 22:24:35.633 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.4670
+2026-05-23 22:24:35.633 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    flat=0.9340 | up=0.0000
+2026-05-23 22:24:35.633 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        flat       1.00      0.88      0.93      8563
+          up       0.00      0.00      0.00         0
+
+    accuracy                           0.88      8563
+   macro avg       0.50      0.44      0.47      8563
+weighted avg       1.00      0.88      0.93      8563
+
+2026-05-23 22:24:35.634 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[7503 1060]
+ [   0    0]]
+2026-05-23 22:24:35.807 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-23 22:24:35.808 | INFO     | src.models.baselines:evaluate:76 - Model: MLP [test]
+2026-05-23 22:24:35.808 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['flat', 'up']
+2026-05-23 22:24:35.808 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0000
+2026-05-23 22:24:35.808 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.4290
+2026-05-23 22:24:35.808 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    flat=0.8580 | up=0.0000
+2026-05-23 22:24:35.808 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        flat       1.00      0.75      0.86      8564
+          up       0.00      0.00      0.00         0
+
+    accuracy                           0.75      8564
+   macro avg       0.50      0.38      0.43      8564
+weighted avg       1.00      0.75      0.86      8564
+
+2026-05-23 22:24:35.808 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[6434 2130]
+ [   0    0]]
+2026-05-23 22:24:35.821 | INFO     | src.models.baselines:run_baselines:234 - Baseline results saved → experiments/20260524_021830/baselines_20260524_022435.json
+2026-05-23 22:24:35.821 | INFO     | src.models.baselines:run_baselines:237 - 
+{'='*50}
+2026-05-23 22:24:35.821 | INFO     | src.models.baselines:run_baselines:238 - BASELINE COMPARISON (test set)
+2026-05-23 22:24:35.821 | INFO     | src.models.baselines:run_baselines:239 - Model                        Kappa  MacroF1  F1-down    F1-up
+2026-05-23 22:24:35.821 | INFO     | src.models.baselines:run_baselines:240 - ------------------------------------------------------------
+2026-05-23 22:24:35.822 | INFO     | src.models.baselines:run_baselines:243 - logistic_regression         0.0000   0.3343   0.0000   0.0000
+2026-05-23 22:24:35.822 | INFO     | src.models.baselines:run_baselines:243 - mlp                         0.0000   0.4290   0.0000   0.0000
+2026-05-23 22:24:36.198 | INFO     | __main__:run_experiment:175 - Training DeepLOB...
+2026-05-23 22:24:36.275 | INFO     | src.models.architectures:build_model:440 - Built DeepLOB | params=77,248
+2026-05-23 22:24:36.573 | INFO     | src.models.trainer:get_device:33 - Using GPU: NVIDIA GeForce GTX 1650
+2026-05-23 22:24:38.874 | INFO     | src.models.trainer:train:148 - Training DeepLOB_k10 | epochs=50 | patience=10 | device=cuda
+2026-05-23 22:25:00.466 | INFO     | src.models.trainer:train:197 - Epoch   1/50 | train_loss=0.5520 | val_loss=0.0152 | val_kappa=nan | val_f1=1.0000 | lr=9.99e-04 | time=21.6s
+2026-05-23 22:25:29.471 | INFO     | src.models.trainer:train:197 - Epoch   2/50 | train_loss=1.0327 | val_loss=0.0652 | val_kappa=nan | val_f1=1.0000 | lr=9.96e-04 | time=29.0s
+2026-05-23 22:26:05.051 | INFO     | src.models.trainer:train:197 - Epoch   3/50 | train_loss=0.7598 | val_loss=0.0864 | val_kappa=nan | val_f1=1.0000 | lr=9.91e-04 | time=35.6s
+2026-05-23 22:26:37.480 | INFO     | src.models.trainer:train:197 - Epoch   4/50 | train_loss=0.6906 | val_loss=0.1089 | val_kappa=nan | val_f1=1.0000 | lr=9.84e-04 | time=32.4s
+2026-05-23 22:27:09.938 | INFO     | src.models.trainer:train:197 - Epoch   5/50 | train_loss=0.6317 | val_loss=0.0966 | val_kappa=nan | val_f1=1.0000 | lr=9.76e-04 | time=32.5s
+2026-05-23 22:27:42.896 | INFO     | src.models.trainer:train:197 - Epoch   6/50 | train_loss=0.6249 | val_loss=0.1099 | val_kappa=nan | val_f1=1.0000 | lr=9.65e-04 | time=33.0s
+2026-05-23 22:28:16.864 | INFO     | src.models.trainer:train:197 - Epoch   7/50 | train_loss=0.6185 | val_loss=0.1248 | val_kappa=nan | val_f1=1.0000 | lr=9.52e-04 | time=34.0s
+2026-05-23 22:28:51.859 | INFO     | src.models.trainer:train:197 - Epoch   8/50 | train_loss=0.5913 | val_loss=0.1317 | val_kappa=nan | val_f1=1.0000 | lr=9.38e-04 | time=35.0s
+2026-05-23 22:29:27.442 | INFO     | src.models.trainer:train:197 - Epoch   9/50 | train_loss=0.5799 | val_loss=0.1387 | val_kappa=nan | val_f1=1.0000 | lr=9.22e-04 | time=35.6s
+2026-05-23 22:30:04.622 | INFO     | src.models.trainer:train:197 - Epoch  10/50 | train_loss=0.5692 | val_loss=0.1512 | val_kappa=nan | val_f1=1.0000 | lr=9.05e-04 | time=37.2s
+2026-05-23 22:30:04.623 | INFO     | src.models.trainer:train:220 - Early stopping at epoch 10 (no improvement for 10 epochs)
+2026-05-23 22:30:04.624 | INFO     | src.models.trainer:evaluate_test:240 - Evaluating DeepLOB_k10 on test set...
+2026-05-23 22:30:07.292 | ERROR    | __main__:run_experiment:190 - DeepLOB training failed: Number of classes, 1, does not match size of target_names, 3. Try specifying the labels parameter
+2026-05-23 22:30:07.293 | WARNING  | __main__:run_experiment:191 - DeepLOB CNN requires sufficient seq_len and n_features. Current: seq_len=100, n_features=41. Try --seq-len 100 if you see shape errors.
+2026-05-23 22:30:07.294 | INFO     | __main__:run_experiment:201 - Training LevelConditionalAttention...
+2026-05-23 22:30:07.304 | INFO     | src.models.architectures:build_model:440 - Built LevelConditionalAttention | params=82,637
+2026-05-23 22:30:07.305 | INFO     | src.models.trainer:get_device:33 - Using GPU: NVIDIA GeForce GTX 1650
+2026-05-23 22:30:07.317 | INFO     | src.models.trainer:train:148 - Training LOBAttention_k10 | epochs=50 | patience=10 | device=cuda
+2026-05-23 22:30:18.531 | INFO     | src.models.trainer:train:197 - Epoch   1/50 | train_loss=0.6597 | val_loss=0.0356 | val_kappa=nan | val_f1=1.0000 | lr=9.99e-04 | time=11.2s
+2026-05-23 22:30:30.466 | INFO     | src.models.trainer:train:197 - Epoch   2/50 | train_loss=1.0552 | val_loss=0.0746 | val_kappa=nan | val_f1=1.0000 | lr=9.96e-04 | time=11.9s
+2026-05-23 22:30:38.107 | INFO     | src.models.trainer:train:197 - Epoch   3/50 | train_loss=0.9097 | val_loss=0.0860 | val_kappa=nan | val_f1=1.0000 | lr=9.91e-04 | time=7.6s
+2026-05-23 22:30:46.935 | INFO     | src.models.trainer:train:197 - Epoch   4/50 | train_loss=0.8635 | val_loss=0.0906 | val_kappa=nan | val_f1=1.0000 | lr=9.84e-04 | time=8.8s
+2026-05-23 22:30:53.760 | INFO     | src.models.trainer:train:197 - Epoch   5/50 | train_loss=0.8273 | val_loss=0.0944 | val_kappa=nan | val_f1=1.0000 | lr=9.76e-04 | time=6.8s
+2026-05-23 22:31:03.161 | INFO     | src.models.trainer:train:197 - Epoch   6/50 | train_loss=0.7714 | val_loss=0.0837 | val_kappa=nan | val_f1=1.0000 | lr=9.65e-04 | time=9.4s
+2026-05-23 22:31:10.974 | INFO     | src.models.trainer:train:197 - Epoch   7/50 | train_loss=0.7515 | val_loss=0.1137 | val_kappa=nan | val_f1=1.0000 | lr=9.52e-04 | time=7.8s
+2026-05-23 22:31:21.046 | INFO     | src.models.trainer:train:197 - Epoch   8/50 | train_loss=0.6650 | val_loss=0.1262 | val_kappa=nan | val_f1=1.0000 | lr=9.38e-04 | time=10.1s
+2026-05-23 22:31:28.822 | INFO     | src.models.trainer:train:197 - Epoch   9/50 | train_loss=0.6169 | val_loss=0.1395 | val_kappa=nan | val_f1=1.0000 | lr=9.22e-04 | time=7.8s
+2026-05-23 22:31:36.688 | INFO     | src.models.trainer:train:197 - Epoch  10/50 | train_loss=0.5895 | val_loss=0.1472 | val_kappa=nan | val_f1=1.0000 | lr=9.05e-04 | time=7.9s
+2026-05-23 22:31:36.688 | INFO     | src.models.trainer:train:220 - Early stopping at epoch 10 (no improvement for 10 epochs)
+2026-05-23 22:31:36.688 | INFO     | src.models.trainer:evaluate_test:240 - Evaluating LOBAttention_k10 on test set...

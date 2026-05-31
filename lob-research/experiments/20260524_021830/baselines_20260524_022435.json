@@ -1,0 +1,94 @@
+{
+  "logistic_regression": {
+    "val": {
+      "model": "LogisticRegression [val]",
+      "kappa": 0.0,
+      "macro_f1": 0.3396,
+      "f1_down": 0.0,
+      "f1_flat": 0.6793,
+      "f1_up": 0.0,
+      "classes_present": [
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          4404,
+          4159
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "test": {
+      "model": "LogisticRegression [test]",
+      "kappa": 0.0,
+      "macro_f1": 0.3343,
+      "f1_down": 0.0,
+      "f1_flat": 0.6686,
+      "f1_up": 0.0,
+      "classes_present": [
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          4301,
+          4263
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "mlp": {
+    "val": {
+      "model": "MLP [val]",
+      "kappa": 0.0,
+      "macro_f1": 0.467,
+      "f1_down": 0.0,
+      "f1_flat": 0.934,
+      "f1_up": 0.0,
+      "classes_present": [
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          7503,
+          1060
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "test": {
+      "model": "MLP [test]",
+      "kappa": 0.0,
+      "macro_f1": 0.429,
+      "f1_down": 0.0,
+      "f1_flat": 0.858,
+      "f1_up": 0.0,
+      "classes_present": [
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          6434,
+          2130
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  }
+}

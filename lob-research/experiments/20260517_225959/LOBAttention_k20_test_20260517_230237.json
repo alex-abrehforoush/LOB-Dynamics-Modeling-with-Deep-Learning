@@ -1,0 +1,9 @@
+{
+  "model": "LOBAttention_k20",
+  "kappa": -0.0057,
+  "macro_f1": 0.2992,
+  "loss": 1.09883,
+  "f1_down": 0.5329,
+  "f1_flat": 0.0761,
+  "f1_up": 0.2886
+}

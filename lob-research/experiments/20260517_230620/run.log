@@ -1,0 +1,22 @@
+2026-05-17 19:06:20.160 | INFO     | __main__:run_experiment:94 - Experiment started | output=experiments/20260517_230620
+2026-05-17 19:06:20.160 | INFO     | __main__:run_experiment:95 - Args: {'symbols': ['BTCUSDT', 'ETHUSDT'], 'use_sim': False, 'horizons': [10, 20, 50], 'alpha': 0.0001, 'seq_len': 100, 'epochs': 50, 'lr': 0.001, 'patience': 10, 'batch_size': 512}
+2026-05-17 19:06:20.200 | INFO     | __main__:load_data:64 - Loaded 28,603 rows from data/raw/BTCUSDT/2026-05-13.parquet
+2026-05-17 19:06:20.212 | INFO     | __main__:load_data:64 - Loaded 28,603 rows from data/raw/ETHUSDT/2026-05-13.parquet
+2026-05-17 19:06:20.252 | INFO     | __main__:load_data:76 - Combined dataset: 57,206 rows | symbols=['BTCUSDT', 'ETHUSDT'] | columns=47
+2026-05-17 19:06:20.252 | INFO     | __main__:run_experiment:111 - Computing features...
+2026-05-17 19:06:20.385 | INFO     | src.features.engineering:compute_features:257 - Feature engineering complete | input_cols=47 | output_cols=88 | new_features=41
+2026-05-17 19:06:20.385 | INFO     | __main__:run_experiment:114 - Computing labels (horizons=[10, 20, 50])...
+2026-05-17 19:06:20.784 | INFO     | src.features.engineering:compute_labels:96 - Labels k= 10: up=28,598 (50.0%) | flat=     0 (0.0%) | down=28,598 (50.0%)
+2026-05-17 19:06:21.119 | INFO     | src.features.engineering:compute_labels:96 - Labels k= 20: up=28,593 (50.0%) | flat=     0 (0.0%) | down=28,593 (50.0%)
+2026-05-17 19:06:21.453 | INFO     | src.features.engineering:compute_labels:96 - Labels k= 50: up=28,578 (50.0%) | flat=     0 (0.0%) | down=28,578 (50.0%)
+2026-05-17 19:06:21.997 | INFO     | __main__:run_experiment:121 - Feature matrix saved → data/features/features_20260517_230620.parquet
+2026-05-17 19:06:21.998 | INFO     | __main__:run_experiment:129 - 
+============================================================
+2026-05-17 19:06:21.998 | INFO     | __main__:run_experiment:130 - Running experiments for horizon k=10
+2026-05-17 19:06:21.998 | INFO     | __main__:run_experiment:131 - ============================================================
+2026-05-17 19:06:22.399 | INFO     | src.features.engineering:build_dataset:377 - Dataset built | horizon=k10 | seq_len=100 | features=41 | train=39,960 | val=8,563 | test=8,564
+2026-05-17 19:06:22.399 | INFO     | src.features.engineering:build_dataset:390 -   train class distribution: {-1: 19980, 1: 19980}
+2026-05-17 19:06:22.399 | INFO     | src.features.engineering:build_dataset:390 -   val class distribution: {-1: 4281, 1: 4282}
+2026-05-17 19:06:22.399 | INFO     | src.features.engineering:build_dataset:390 -   test class distribution: {-1: 4282, 1: 4282}
+2026-05-17 19:06:22.404 | INFO     | __main__:run_experiment:152 - Running sklearn baselines...
+2026-05-17 19:06:22.404 | INFO     | src.models.baselines:run_logistic_regression:97 - Running Logistic Regression baseline...

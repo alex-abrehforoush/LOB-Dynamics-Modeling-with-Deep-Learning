@@ -1,0 +1,23 @@
+{
+  "lob_attention_learned": {
+    "model": "LOBAttention_k50",
+    "kappa": 0.0523,
+    "macro_f1": 0.3181,
+    "loss": 0.878899,
+    "f1_down": 0.0829,
+    "f1_flat": 0.7786,
+    "f1_up": 0.0927
+  },
+  "lob_attention_uniform": {
+    "model": "LOBAttention_Uniform_k50",
+    "kappa": 0.0575,
+    "macro_f1": 0.368,
+    "loss": 0.773934,
+    "f1_down": 0.077,
+    "f1_flat": 0.9348,
+    "f1_up": 0.0921
+  },
+  "kappa_gap": -0.0052,
+  "params_learned": 82637,
+  "params_uniform": 82637
+}

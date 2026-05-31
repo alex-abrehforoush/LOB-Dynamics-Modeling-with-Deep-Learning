@@ -1,0 +1,126 @@
+{
+  "logistic_regression": {
+    "val": {
+      "model": "LogisticRegression [val]",
+      "kappa": 0.1068,
+      "macro_f1": 0.3293,
+      "f1_down": 0.2547,
+      "f1_flat": 0.5414,
+      "f1_up": 0.1918,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          430,
+          108,
+          156
+        ],
+        [
+          2074,
+          2762,
+          2414
+        ],
+        [
+          178,
+          84,
+          336
+        ]
+      ]
+    },
+    "test": {
+      "model": "LogisticRegression [test]",
+      "kappa": 0.0849,
+      "macro_f1": 0.3301,
+      "f1_down": 0.2592,
+      "f1_flat": 0.4826,
+      "f1_up": 0.2485,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          520,
+          269,
+          364
+        ],
+        [
+          2140,
+          2220,
+          2174
+        ],
+        [
+          200,
+          177,
+          482
+        ]
+      ]
+    }
+  },
+  "mlp": {
+    "val": {
+      "model": "MLP [val]",
+      "kappa": 0.0253,
+      "macro_f1": 0.3462,
+      "f1_down": 0.0525,
+      "f1_flat": 0.892,
+      "f1_up": 0.0943,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          24,
+          646,
+          24
+        ],
+        [
+          188,
+          6795,
+          267
+        ],
+        [
+          9,
+          545,
+          44
+        ]
+      ]
+    },
+    "test": {
+      "model": "MLP [test]",
+      "kappa": 0.0365,
+      "macro_f1": 0.3326,
+      "f1_down": 0.067,
+      "f1_flat": 0.8507,
+      "f1_up": 0.0803,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          45,
+          1057,
+          51
+        ],
+        [
+          120,
+          6200,
+          214
+        ],
+        [
+          26,
+          786,
+          47
+        ]
+      ]
+    }
+  }
+}

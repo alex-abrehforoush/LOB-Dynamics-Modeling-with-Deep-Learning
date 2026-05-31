@@ -1,0 +1,776 @@
+2026-05-30 22:32:30.457 | INFO     | __main__:run_experiment:85 - Experiment started | output=experiments/20260531_023230
+2026-05-30 22:32:30.457 | INFO     | __main__:run_experiment:86 - Design: train=['2026-05-25']/['BTCUSDT', 'ETHUSDT', 'SOLUSDT'] | test=['2026-05-13']/['BTCUSDT', 'ETHUSDT']
+2026-05-30 22:32:30.457 | INFO     | __main__:run_experiment:99 - Train files: ['2026-05-25.parquet', '2026-05-25.parquet', '2026-05-25.parquet']
+2026-05-30 22:32:30.457 | INFO     | __main__:run_experiment:100 - Test files:  ['2026-05-13.parquet', '2026-05-13.parquet']
+2026-05-30 22:32:30.553 | INFO     | __main__:load_files:50 - Loaded 37,920 rows from data/raw/BTCUSDT/2026-05-25.parquet
+2026-05-30 22:32:30.578 | INFO     | __main__:load_files:50 - Loaded 37,920 rows from data/raw/ETHUSDT/2026-05-25.parquet
+2026-05-30 22:32:30.601 | INFO     | __main__:load_files:50 - Loaded 37,919 rows from data/raw/SOLUSDT/2026-05-25.parquet
+2026-05-30 22:32:30.667 | INFO     | __main__:load_files:50 - Loaded 28,603 rows from data/raw/BTCUSDT/2026-05-13.parquet
+2026-05-30 22:32:30.682 | INFO     | __main__:load_files:50 - Loaded 28,603 rows from data/raw/ETHUSDT/2026-05-13.parquet
+2026-05-30 22:32:30.702 | INFO     | __main__:run_experiment:104 - Train raw: 113,759 rows
+2026-05-30 22:32:30.702 | INFO     | __main__:run_experiment:105 - Test raw:  57,206 rows
+2026-05-30 22:32:30.702 | INFO     | __main__:run_experiment:112 - Computing features...
+2026-05-30 22:32:30.884 | INFO     | src.features.engineering:compute_features:191 - Feature engineering complete | input_cols=47 | output_cols=88 | new_features=41
+2026-05-30 22:32:30.994 | INFO     | src.features.engineering:compute_features:191 - Feature engineering complete | input_cols=47 | output_cols=88 | new_features=41
+2026-05-30 22:32:30.994 | INFO     | __main__:run_experiment:119 - 
+============================================================
+2026-05-30 22:32:30.994 | INFO     | __main__:run_experiment:120 - Horizon k=10
+2026-05-30 22:32:30.994 | INFO     | __main__:run_experiment:121 - ============================================================
+2026-05-30 22:32:31.823 | INFO     | src.features.engineering:compute_labels:76 - k=10: auto-calibrated alpha=0.000141 (0.0141% | targets 15% flat)
+2026-05-30 22:32:32.512 | INFO     | src.features.engineering:compute_labels:95 - Labels k= 10: up= 8,613 (7.6%) | flat=96,669 (85.0%) | down= 8,447 (7.4%)
+2026-05-30 22:32:32.516 | INFO     | __main__:run_experiment:134 - Train alpha (calibrated): 0.000141 (0.0141% of mid-price)
+2026-05-30 22:32:32.934 | INFO     | src.features.engineering:compute_labels:95 - Labels k= 10: up= 2,006 (3.5%) | flat=53,261 (93.1%) | down= 1,919 (3.4%)
+2026-05-30 22:32:33.205 | INFO     | src.features.engineering:build_dataset_cross_day:381 -   Train BTCUSDT: train=32,136 | val=5,671 | classes={-1: 1473, 0: 29264, 1: 1399}
+2026-05-30 22:32:33.432 | INFO     | src.features.engineering:build_dataset_cross_day:381 -   Train ETHUSDT: train=32,136 | val=5,671 | classes={-1: 2735, 0: 26650, 1: 2751}
+2026-05-30 22:32:33.657 | INFO     | src.features.engineering:build_dataset_cross_day:381 -   Train SOLUSDT: train=32,136 | val=5,670 | classes={-1: 3109, 0: 25848, 1: 3179}
+2026-05-30 22:32:33.827 | INFO     | src.features.engineering:build_dataset_cross_day:415 -   Test BTCUSDT: sequences=28,488 | classes={-1: 575, 0: 27434, 1: 579}
+2026-05-30 22:32:33.983 | INFO     | src.features.engineering:build_dataset_cross_day:415 -   Test ETHUSDT: sequences=28,489 | classes={-1: 1344, 0: 25818, 1: 1427}
+2026-05-30 22:32:34.778 | INFO     | src.features.engineering:build_dataset_cross_day:437 - 
+Cross-day dataset | horizon=k10 | seq_len=100 | features=41
+2026-05-30 22:32:34.778 | INFO     | src.features.engineering:build_dataset_cross_day:441 -   train=96,408 | val=17,012 | test=56,977
+2026-05-30 22:32:34.779 | INFO     | src.features.engineering:build_dataset_cross_day:445 -   train class distribution: {-1: 7317, 0: 81762, 1: 7329}
+2026-05-30 22:32:34.779 | INFO     | src.features.engineering:build_dataset_cross_day:445 -   val class distribution: {-1: 1087, 0: 14695, 1: 1230}
+2026-05-30 22:32:34.779 | INFO     | src.features.engineering:build_dataset_cross_day:445 -   test class distribution: {-1: 1895, 0: 53094, 1: 1988}
+2026-05-30 22:32:34.805 | INFO     | __main__:run_experiment:165 - Running sklearn baselines...
+2026-05-30 22:32:34.805 | INFO     | src.models.baselines:run_logistic_regression:114 - Running Logistic Regression baseline...
+2026-05-30 22:32:46.327 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-30 22:32:46.328 | INFO     | src.models.baselines:evaluate:76 - Model: LogisticRegression [val]
+2026-05-30 22:32:46.328 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['down', 'flat', 'up']
+2026-05-30 22:32:46.328 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0834
+2026-05-30 22:32:46.328 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.3028
+2026-05-30 22:32:46.328 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    down=0.1892 | flat=0.5147 | up=0.2045
+2026-05-30 22:32:46.328 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.11      0.60      0.19      1087
+        flat       0.93      0.36      0.51     14695
+          up       0.12      0.56      0.20      1230
+
+    accuracy                           0.39     17012
+   macro avg       0.39      0.51      0.30     17012
+weighted avg       0.82      0.39      0.47     17012
+
+2026-05-30 22:32:46.328 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[ 655  199  233]
+ [4836 5228 4631]
+ [ 345  191  694]]
+2026-05-30 22:32:46.459 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-30 22:32:46.459 | INFO     | src.models.baselines:evaluate:76 - Model: LogisticRegression [test]
+2026-05-30 22:32:46.459 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['down', 'flat', 'up']
+2026-05-30 22:32:46.459 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0293
+2026-05-30 22:32:46.459 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.1998
+2026-05-30 22:32:46.459 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    down=0.1018 | flat=0.4044 | up=0.0932
+2026-05-30 22:32:46.460 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.06      0.34      0.10      1895
+        flat       0.97      0.26      0.40     53094
+          up       0.05      0.80      0.09      1988
+
+    accuracy                           0.28     56977
+   macro avg       0.36      0.47      0.20     56977
+weighted avg       0.90      0.28      0.38     56977
+
+2026-05-30 22:32:46.460 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[  638   268   989]
+ [ 9805 13577 29712]
+ [  191   200  1597]]
+2026-05-30 22:32:46.460 | INFO     | src.models.baselines:run_mlp:163 - Running MLP baseline...
+2026-05-30 22:40:51.907 | INFO     | src.models.baselines:run_mlp:194 - MLP converged after 43 iterations
+2026-05-30 22:40:52.280 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-30 22:40:52.280 | INFO     | src.models.baselines:evaluate:76 - Model: MLP [val]
+2026-05-30 22:40:52.280 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['down', 'flat', 'up']
+2026-05-30 22:40:52.280 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0283
+2026-05-30 22:40:52.280 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.3447
+2026-05-30 22:40:52.280 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    down=0.0678 | flat=0.9048 | up=0.0614
+2026-05-30 22:40:52.281 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.11      0.05      0.07      1087
+        flat       0.87      0.95      0.90     14695
+          up       0.11      0.04      0.06      1230
+
+    accuracy                           0.82     17012
+   macro avg       0.36      0.35      0.34     17012
+weighted avg       0.76      0.82      0.79     17012
+
+2026-05-30 22:40:52.288 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[   54   999    34]
+ [  412 13906   377]
+ [   39  1139    52]]
+2026-05-30 22:40:53.014 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-30 22:40:53.014 | INFO     | src.models.baselines:evaluate:76 - Model: MLP [test]
+2026-05-30 22:40:53.014 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['down', 'flat', 'up']
+2026-05-30 22:40:53.014 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0180
+2026-05-30 22:40:53.014 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.3424
+2026-05-30 22:40:53.015 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    down=0.0428 | flat=0.9205 | up=0.0639
+2026-05-30 22:40:53.015 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.04      0.05      0.04      1895
+        flat       0.93      0.91      0.92     53094
+          up       0.05      0.08      0.06      1988
+
+    accuracy                           0.85     56977
+   macro avg       0.34      0.35      0.34     56977
+weighted avg       0.87      0.85      0.86     56977
+
+2026-05-30 22:40:53.015 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[   91  1706    98]
+ [ 2161 48202  2731]
+ [  105  1724   159]]
+2026-05-30 22:40:53.080 | INFO     | src.models.baselines:run_baselines:234 - Baseline results saved → experiments/20260531_023230/baselines_20260531_024053.json
+2026-05-30 22:40:53.080 | INFO     | src.models.baselines:run_baselines:237 - 
+{'='*50}
+2026-05-30 22:40:53.081 | INFO     | src.models.baselines:run_baselines:238 - BASELINE COMPARISON (test set)
+2026-05-30 22:40:53.082 | INFO     | src.models.baselines:run_baselines:239 - Model                        Kappa  MacroF1  F1-down    F1-up
+2026-05-30 22:40:53.083 | INFO     | src.models.baselines:run_baselines:240 - ------------------------------------------------------------
+2026-05-30 22:40:53.083 | INFO     | src.models.baselines:run_baselines:243 - logistic_regression         0.0293   0.1998   0.1018   0.0932
+2026-05-30 22:40:53.083 | INFO     | src.models.baselines:run_baselines:243 - mlp                         0.0180   0.3424   0.0428   0.0639
+2026-05-30 22:40:54.025 | INFO     | __main__:run_experiment:177 - Training DeepLOB...
+2026-05-30 22:40:54.120 | INFO     | src.models.architectures:build_model:440 - Built DeepLOB | params=77,248
+2026-05-30 22:40:54.387 | INFO     | src.models.trainer:get_device:20 - Using GPU: NVIDIA GeForce GTX 1650
+2026-05-30 22:40:57.185 | INFO     | src.models.trainer:train:108 - Training DeepLOB_k10 | epochs=50 | patience=10 | device=cuda
+2026-05-30 22:41:51.692 | INFO     | src.models.trainer:train:149 - Epoch   1/50 | train_loss=1.0761 | val_loss=1.1718 | val_kappa=0.0003 | val_f1=0.0426 | lr=9.99e-04 | time=54.5s
+2026-05-30 22:41:51.700 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0003 — checkpoint saved
+2026-05-30 22:43:01.005 | INFO     | src.models.trainer:train:149 - Epoch   2/50 | train_loss=1.0616 | val_loss=1.0725 | val_kappa=0.0231 | val_f1=0.2552 | lr=9.96e-04 | time=69.3s
+2026-05-30 22:43:01.029 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0231 — checkpoint saved
+2026-05-30 22:44:19.456 | INFO     | src.models.trainer:train:149 - Epoch   3/50 | train_loss=1.0409 | val_loss=1.0705 | val_kappa=0.0033 | val_f1=0.2015 | lr=9.91e-04 | time=78.4s
+2026-05-30 22:45:35.144 | INFO     | src.models.trainer:train:149 - Epoch   4/50 | train_loss=1.0319 | val_loss=1.1113 | val_kappa=0.0075 | val_f1=0.1393 | lr=9.84e-04 | time=75.7s
+2026-05-30 22:46:56.140 | INFO     | src.models.trainer:train:149 - Epoch   5/50 | train_loss=1.0265 | val_loss=1.0953 | val_kappa=0.0198 | val_f1=0.2087 | lr=9.76e-04 | time=81.0s
+2026-05-30 22:48:13.658 | INFO     | src.models.trainer:train:149 - Epoch   6/50 | train_loss=1.0238 | val_loss=1.0663 | val_kappa=0.0206 | val_f1=0.1936 | lr=9.65e-04 | time=77.5s
+2026-05-30 22:49:34.505 | INFO     | src.models.trainer:train:149 - Epoch   7/50 | train_loss=1.0196 | val_loss=1.2304 | val_kappa=0.0009 | val_f1=0.1126 | lr=9.52e-04 | time=80.8s
+2026-05-30 22:50:55.772 | INFO     | src.models.trainer:train:149 - Epoch   8/50 | train_loss=1.0159 | val_loss=1.0653 | val_kappa=0.0355 | val_f1=0.2595 | lr=9.38e-04 | time=81.3s
+2026-05-30 22:50:55.796 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0355 — checkpoint saved
+2026-05-30 22:52:18.340 | INFO     | src.models.trainer:train:149 - Epoch   9/50 | train_loss=1.0110 | val_loss=1.1397 | val_kappa=0.0185 | val_f1=0.1782 | lr=9.22e-04 | time=82.5s
+2026-05-30 22:53:40.126 | INFO     | src.models.trainer:train:149 - Epoch  10/50 | train_loss=1.0064 | val_loss=1.0549 | val_kappa=0.0258 | val_f1=0.1873 | lr=9.05e-04 | time=81.8s
+2026-05-30 22:55:02.041 | INFO     | src.models.trainer:train:149 - Epoch  11/50 | train_loss=0.9992 | val_loss=1.1256 | val_kappa=0.0056 | val_f1=0.1965 | lr=8.85e-04 | time=81.9s
+2026-05-30 22:56:25.581 | INFO     | src.models.trainer:train:149 - Epoch  12/50 | train_loss=0.9917 | val_loss=1.2412 | val_kappa=-0.0021 | val_f1=0.1627 | lr=8.65e-04 | time=83.5s
+2026-05-30 22:57:50.217 | INFO     | src.models.trainer:train:149 - Epoch  13/50 | train_loss=0.9836 | val_loss=1.2307 | val_kappa=-0.0063 | val_f1=0.1616 | lr=8.42e-04 | time=84.6s
+2026-05-30 22:59:14.801 | INFO     | src.models.trainer:train:149 - Epoch  14/50 | train_loss=0.9699 | val_loss=1.2589 | val_kappa=0.0013 | val_f1=0.1608 | lr=8.19e-04 | time=84.6s
+2026-05-30 23:00:40.382 | INFO     | src.models.trainer:train:149 - Epoch  15/50 | train_loss=0.9555 | val_loss=1.4910 | val_kappa=-0.0013 | val_f1=0.1418 | lr=7.94e-04 | time=85.6s
+2026-05-30 23:02:03.936 | INFO     | src.models.trainer:train:149 - Epoch  16/50 | train_loss=0.9404 | val_loss=1.2196 | val_kappa=-0.0063 | val_f1=0.1689 | lr=7.68e-04 | time=83.6s
+2026-05-30 23:03:30.564 | INFO     | src.models.trainer:train:149 - Epoch  17/50 | train_loss=0.9242 | val_loss=1.8269 | val_kappa=-0.0037 | val_f1=0.1659 | lr=7.41e-04 | time=86.6s
+2026-05-30 23:04:55.268 | INFO     | src.models.trainer:train:149 - Epoch  18/50 | train_loss=0.9020 | val_loss=1.7985 | val_kappa=-0.0039 | val_f1=0.1470 | lr=7.13e-04 | time=84.7s
+2026-05-30 23:04:55.268 | INFO     | src.models.trainer:train:177 - Early stopping at epoch 18 (no improvement for 10 epochs)
+2026-05-30 23:04:55.271 | INFO     | src.models.trainer:train:182 - Restored best model (kappa=0.0355)
+2026-05-30 23:04:55.271 | INFO     | src.models.trainer:evaluate_test:187 - Evaluating DeepLOB_k10 on test set...
+2026-05-30 23:05:08.754 | INFO     | src.models.trainer:evaluate_test:224 - 
+Test Results — DeepLOB_k10
+2026-05-30 23:05:08.755 | INFO     | src.models.trainer:evaluate_test:225 - Kappa:    0.0226
+2026-05-30 23:05:08.755 | INFO     | src.models.trainer:evaluate_test:226 - Macro F1: 0.2315
+2026-05-30 23:05:08.755 | INFO     | src.models.trainer:evaluate_test:227 - 
+              precision    recall  f1-score   support
+
+        down       0.05      0.48      0.10      1895
+        flat       0.94      0.35      0.51     53094
+          up       0.05      0.50      0.09      1988
+
+    accuracy                           0.36     56977
+   macro avg       0.35      0.44      0.23     56977
+weighted avg       0.88      0.36      0.48     56977
+
+2026-05-30 23:05:08.756 | INFO     | src.models.trainer:evaluate_test:233 - Test results saved → experiments/20260531_023230/DeepLOB_k10_test_20260531_030508.json
+2026-05-30 23:05:08.758 | INFO     | __main__:run_experiment:195 - Training LOBAttention...
+2026-05-30 23:05:08.765 | INFO     | src.models.architectures:build_model:440 - Built LevelConditionalAttention | params=82,637
+2026-05-30 23:05:08.766 | INFO     | src.models.trainer:get_device:20 - Using GPU: NVIDIA GeForce GTX 1650
+2026-05-30 23:05:08.774 | INFO     | src.models.trainer:train:108 - Training LOBAttention_k10 | epochs=50 | patience=10 | device=cuda
+2026-05-30 23:05:33.028 | INFO     | src.models.trainer:train:149 - Epoch   1/50 | train_loss=1.0533 | val_loss=1.0479 | val_kappa=0.0244 | val_f1=0.1763 | lr=9.99e-04 | time=24.3s
+2026-05-30 23:05:33.031 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0244 — checkpoint saved
+2026-05-30 23:05:50.900 | INFO     | src.models.trainer:train:149 - Epoch   2/50 | train_loss=1.0439 | val_loss=1.0298 | val_kappa=0.0260 | val_f1=0.1832 | lr=9.96e-04 | time=17.9s
+2026-05-30 23:05:50.903 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0260 — checkpoint saved
+2026-05-30 23:06:12.631 | INFO     | src.models.trainer:train:149 - Epoch   3/50 | train_loss=1.0407 | val_loss=1.0247 | val_kappa=0.0317 | val_f1=0.1498 | lr=9.91e-04 | time=21.7s
+2026-05-30 23:06:12.633 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0317 — checkpoint saved
+2026-05-30 23:06:31.955 | INFO     | src.models.trainer:train:149 - Epoch   4/50 | train_loss=1.0364 | val_loss=1.0173 | val_kappa=0.0334 | val_f1=0.1704 | lr=9.84e-04 | time=19.3s
+2026-05-30 23:06:31.963 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0334 — checkpoint saved
+2026-05-30 23:06:54.018 | INFO     | src.models.trainer:train:149 - Epoch   5/50 | train_loss=1.0307 | val_loss=1.0079 | val_kappa=0.0352 | val_f1=0.1787 | lr=9.76e-04 | time=22.1s
+2026-05-30 23:06:54.023 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0352 — checkpoint saved
+2026-05-30 23:07:13.510 | INFO     | src.models.trainer:train:149 - Epoch   6/50 | train_loss=1.0304 | val_loss=1.0042 | val_kappa=0.0394 | val_f1=0.1842 | lr=9.65e-04 | time=19.5s
+2026-05-30 23:07:13.518 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0394 — checkpoint saved
+2026-05-30 23:07:32.659 | INFO     | src.models.trainer:train:149 - Epoch   7/50 | train_loss=1.0254 | val_loss=1.0050 | val_kappa=0.0362 | val_f1=0.2527 | lr=9.52e-04 | time=19.1s
+2026-05-30 23:07:54.274 | INFO     | src.models.trainer:train:149 - Epoch   8/50 | train_loss=1.0279 | val_loss=1.0051 | val_kappa=0.0387 | val_f1=0.1965 | lr=9.38e-04 | time=21.6s
+2026-05-30 23:08:16.009 | INFO     | src.models.trainer:train:149 - Epoch   9/50 | train_loss=1.0261 | val_loss=0.9957 | val_kappa=0.0472 | val_f1=0.2009 | lr=9.22e-04 | time=21.7s
+2026-05-30 23:08:16.013 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0472 — checkpoint saved
+2026-05-30 23:08:36.513 | INFO     | src.models.trainer:train:149 - Epoch  10/50 | train_loss=1.0237 | val_loss=0.9958 | val_kappa=0.0481 | val_f1=0.2339 | lr=9.05e-04 | time=20.5s
+2026-05-30 23:08:36.521 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0481 — checkpoint saved
+2026-05-30 23:08:55.827 | INFO     | src.models.trainer:train:149 - Epoch  11/50 | train_loss=1.0248 | val_loss=0.9900 | val_kappa=0.0505 | val_f1=0.2249 | lr=8.85e-04 | time=19.3s
+2026-05-30 23:08:55.836 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0505 — checkpoint saved
+2026-05-30 23:09:16.280 | INFO     | src.models.trainer:train:149 - Epoch  12/50 | train_loss=1.0207 | val_loss=0.9876 | val_kappa=0.0518 | val_f1=0.2318 | lr=8.65e-04 | time=20.4s
+2026-05-30 23:09:16.282 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0518 — checkpoint saved
+2026-05-30 23:09:39.876 | INFO     | src.models.trainer:train:149 - Epoch  13/50 | train_loss=1.0213 | val_loss=0.9880 | val_kappa=0.0518 | val_f1=0.2216 | lr=8.42e-04 | time=23.6s
+2026-05-30 23:09:57.739 | INFO     | src.models.trainer:train:149 - Epoch  14/50 | train_loss=1.0202 | val_loss=0.9894 | val_kappa=0.0498 | val_f1=0.2132 | lr=8.19e-04 | time=17.9s
+2026-05-30 23:10:19.263 | INFO     | src.models.trainer:train:149 - Epoch  15/50 | train_loss=1.0176 | val_loss=0.9893 | val_kappa=0.0487 | val_f1=0.2317 | lr=7.94e-04 | time=21.5s
+2026-05-30 23:10:39.243 | INFO     | src.models.trainer:train:149 - Epoch  16/50 | train_loss=1.0217 | val_loss=0.9913 | val_kappa=0.0485 | val_f1=0.2270 | lr=7.68e-04 | time=20.0s
+2026-05-30 23:10:59.927 | INFO     | src.models.trainer:train:149 - Epoch  17/50 | train_loss=1.0200 | val_loss=0.9874 | val_kappa=0.0555 | val_f1=0.2287 | lr=7.41e-04 | time=20.7s
+2026-05-30 23:10:59.931 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0555 — checkpoint saved
+2026-05-30 23:11:20.017 | INFO     | src.models.trainer:train:149 - Epoch  18/50 | train_loss=1.0157 | val_loss=0.9847 | val_kappa=0.0575 | val_f1=0.2712 | lr=7.13e-04 | time=20.1s
+2026-05-30 23:11:20.025 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0575 — checkpoint saved
+2026-05-30 23:11:40.502 | INFO     | src.models.trainer:train:149 - Epoch  19/50 | train_loss=1.0162 | val_loss=0.9828 | val_kappa=0.0572 | val_f1=0.2415 | lr=6.84e-04 | time=20.5s
+2026-05-30 23:12:01.492 | INFO     | src.models.trainer:train:149 - Epoch  20/50 | train_loss=1.0150 | val_loss=0.9783 | val_kappa=0.0661 | val_f1=0.2634 | lr=6.55e-04 | time=21.0s
+2026-05-30 23:12:01.501 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0661 — checkpoint saved
+2026-05-30 23:12:20.804 | INFO     | src.models.trainer:train:149 - Epoch  21/50 | train_loss=1.0114 | val_loss=0.9796 | val_kappa=0.0654 | val_f1=0.2769 | lr=6.25e-04 | time=19.3s
+2026-05-30 23:12:42.630 | INFO     | src.models.trainer:train:149 - Epoch  22/50 | train_loss=1.0111 | val_loss=0.9770 | val_kappa=0.0632 | val_f1=0.2846 | lr=5.94e-04 | time=21.8s
+2026-05-30 23:13:02.238 | INFO     | src.models.trainer:train:149 - Epoch  23/50 | train_loss=1.0096 | val_loss=0.9764 | val_kappa=0.0679 | val_f1=0.2757 | lr=5.63e-04 | time=19.6s
+2026-05-30 23:13:02.247 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0679 — checkpoint saved
+2026-05-30 23:13:23.099 | INFO     | src.models.trainer:train:149 - Epoch  24/50 | train_loss=1.0084 | val_loss=0.9781 | val_kappa=0.0673 | val_f1=0.2643 | lr=5.32e-04 | time=20.9s
+2026-05-30 23:13:43.739 | INFO     | src.models.trainer:train:149 - Epoch  25/50 | train_loss=1.0064 | val_loss=0.9780 | val_kappa=0.0708 | val_f1=0.2681 | lr=5.00e-04 | time=20.6s
+2026-05-30 23:13:43.748 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0708 — checkpoint saved
+2026-05-30 23:14:05.441 | INFO     | src.models.trainer:train:149 - Epoch  26/50 | train_loss=1.0051 | val_loss=0.9762 | val_kappa=0.0654 | val_f1=0.2771 | lr=4.69e-04 | time=21.7s
+2026-05-30 23:14:24.316 | INFO     | src.models.trainer:train:149 - Epoch  27/50 | train_loss=1.0024 | val_loss=0.9736 | val_kappa=0.0712 | val_f1=0.2841 | lr=4.38e-04 | time=18.9s
+2026-05-30 23:14:24.319 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0712 — checkpoint saved
+2026-05-30 23:14:44.590 | INFO     | src.models.trainer:train:149 - Epoch  28/50 | train_loss=1.0025 | val_loss=0.9735 | val_kappa=0.0711 | val_f1=0.2902 | lr=4.07e-04 | time=20.3s
+2026-05-30 23:15:06.619 | INFO     | src.models.trainer:train:149 - Epoch  29/50 | train_loss=0.9998 | val_loss=0.9720 | val_kappa=0.0751 | val_f1=0.2885 | lr=3.76e-04 | time=22.0s
+2026-05-30 23:15:06.627 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0751 — checkpoint saved
+2026-05-30 23:15:27.420 | INFO     | src.models.trainer:train:149 - Epoch  30/50 | train_loss=0.9984 | val_loss=0.9724 | val_kappa=0.0718 | val_f1=0.2888 | lr=3.46e-04 | time=20.8s
+2026-05-30 23:15:48.288 | INFO     | src.models.trainer:train:149 - Epoch  31/50 | train_loss=0.9990 | val_loss=0.9711 | val_kappa=0.0754 | val_f1=0.2982 | lr=3.17e-04 | time=20.9s
+2026-05-30 23:15:48.299 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0754 — checkpoint saved
+2026-05-30 23:16:07.441 | INFO     | src.models.trainer:train:149 - Epoch  32/50 | train_loss=0.9968 | val_loss=0.9685 | val_kappa=0.0804 | val_f1=0.2977 | lr=2.88e-04 | time=19.1s
+2026-05-30 23:16:07.449 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0804 — checkpoint saved
+2026-05-30 23:16:29.856 | INFO     | src.models.trainer:train:149 - Epoch  33/50 | train_loss=0.9947 | val_loss=0.9697 | val_kappa=0.0803 | val_f1=0.3107 | lr=2.60e-04 | time=22.4s
+2026-05-30 23:16:52.006 | INFO     | src.models.trainer:train:149 - Epoch  34/50 | train_loss=0.9932 | val_loss=0.9681 | val_kappa=0.0824 | val_f1=0.3079 | lr=2.33e-04 | time=22.1s
+2026-05-30 23:16:52.014 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0824 — checkpoint saved
+2026-05-30 23:17:11.942 | INFO     | src.models.trainer:train:149 - Epoch  35/50 | train_loss=0.9892 | val_loss=0.9682 | val_kappa=0.0799 | val_f1=0.3073 | lr=2.07e-04 | time=19.9s
+2026-05-30 23:17:33.160 | INFO     | src.models.trainer:train:149 - Epoch  36/50 | train_loss=0.9888 | val_loss=0.9687 | val_kappa=0.0845 | val_f1=0.3183 | lr=1.82e-04 | time=21.2s
+2026-05-30 23:17:33.168 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0845 — checkpoint saved
+2026-05-30 23:17:53.384 | INFO     | src.models.trainer:train:149 - Epoch  37/50 | train_loss=0.9883 | val_loss=0.9676 | val_kappa=0.0866 | val_f1=0.3174 | lr=1.59e-04 | time=20.2s
+2026-05-30 23:17:53.387 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0866 — checkpoint saved
+2026-05-30 23:18:14.788 | INFO     | src.models.trainer:train:149 - Epoch  38/50 | train_loss=0.9857 | val_loss=0.9683 | val_kappa=0.0880 | val_f1=0.3234 | lr=1.36e-04 | time=21.4s
+2026-05-30 23:18:14.796 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0880 — checkpoint saved
+2026-05-30 23:18:36.701 | INFO     | src.models.trainer:train:149 - Epoch  39/50 | train_loss=0.9831 | val_loss=0.9697 | val_kappa=0.0834 | val_f1=0.3221 | lr=1.16e-04 | time=21.9s
+2026-05-30 23:18:56.297 | INFO     | src.models.trainer:train:149 - Epoch  40/50 | train_loss=0.9802 | val_loss=0.9706 | val_kappa=0.0887 | val_f1=0.3366 | lr=9.64e-05 | time=19.6s
+2026-05-30 23:18:56.305 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0887 — checkpoint saved
+2026-05-30 23:19:18.240 | INFO     | src.models.trainer:train:149 - Epoch  41/50 | train_loss=0.9800 | val_loss=0.9717 | val_kappa=0.0869 | val_f1=0.3379 | lr=7.88e-05 | time=21.9s
+2026-05-30 23:19:39.921 | INFO     | src.models.trainer:train:149 - Epoch  42/50 | train_loss=0.9776 | val_loss=0.9722 | val_kappa=0.0858 | val_f1=0.3358 | lr=6.28e-05 | time=21.7s
+2026-05-30 23:20:01.702 | INFO     | src.models.trainer:train:149 - Epoch  43/50 | train_loss=0.9756 | val_loss=0.9728 | val_kappa=0.0837 | val_f1=0.3333 | lr=4.85e-05 | time=21.8s
+2026-05-30 23:20:23.454 | INFO     | src.models.trainer:train:149 - Epoch  44/50 | train_loss=0.9745 | val_loss=0.9726 | val_kappa=0.0834 | val_f1=0.3328 | lr=3.61e-05 | time=21.8s
+2026-05-30 23:20:43.382 | INFO     | src.models.trainer:train:149 - Epoch  45/50 | train_loss=0.9717 | val_loss=0.9733 | val_kappa=0.0820 | val_f1=0.3310 | lr=2.54e-05 | time=19.9s
+2026-05-30 23:21:05.282 | INFO     | src.models.trainer:train:149 - Epoch  46/50 | train_loss=0.9701 | val_loss=0.9737 | val_kappa=0.0815 | val_f1=0.3304 | lr=1.67e-05 | time=21.9s
+2026-05-30 23:21:26.030 | INFO     | src.models.trainer:train:149 - Epoch  47/50 | train_loss=0.9694 | val_loss=0.9738 | val_kappa=0.0815 | val_f1=0.3298 | lr=9.85e-06 | time=20.7s
+2026-05-30 23:21:44.808 | INFO     | src.models.trainer:train:149 - Epoch  48/50 | train_loss=0.9688 | val_loss=0.9737 | val_kappa=0.0810 | val_f1=0.3285 | lr=4.94e-06 | time=18.8s
+2026-05-30 23:22:06.525 | INFO     | src.models.trainer:train:149 - Epoch  49/50 | train_loss=0.9680 | val_loss=0.9738 | val_kappa=0.0806 | val_f1=0.3279 | lr=1.99e-06 | time=21.7s
+2026-05-30 23:22:28.352 | INFO     | src.models.trainer:train:149 - Epoch  50/50 | train_loss=0.9675 | val_loss=0.9738 | val_kappa=0.0808 | val_f1=0.3278 | lr=1.00e-06 | time=21.8s
+2026-05-30 23:22:28.352 | INFO     | src.models.trainer:train:177 - Early stopping at epoch 50 (no improvement for 10 epochs)
+2026-05-30 23:22:28.353 | INFO     | src.models.trainer:train:182 - Restored best model (kappa=0.0887)
+2026-05-30 23:22:28.353 | INFO     | src.models.trainer:evaluate_test:187 - Evaluating LOBAttention_k10 on test set...
+2026-05-30 23:22:33.714 | INFO     | src.models.trainer:evaluate_test:224 - 
+Test Results — LOBAttention_k10
+2026-05-30 23:22:33.714 | INFO     | src.models.trainer:evaluate_test:225 - Kappa:    0.0587
+2026-05-30 23:22:33.714 | INFO     | src.models.trainer:evaluate_test:226 - Macro F1: 0.3258
+2026-05-30 23:22:33.715 | INFO     | src.models.trainer:evaluate_test:227 - 
+              precision    recall  f1-score   support
+
+        down       0.06      0.38      0.11      1895
+        flat       0.95      0.61      0.74     53094
+          up       0.07      0.45      0.13      1988
+
+    accuracy                           0.59     56977
+   macro avg       0.36      0.48      0.33     56977
+weighted avg       0.89      0.59      0.70     56977
+
+2026-05-30 23:22:33.715 | INFO     | src.models.trainer:evaluate_test:233 - Test results saved → experiments/20260531_023230/LOBAttention_k10_test_20260531_032233.json
+2026-05-30 23:22:33.716 | INFO     | __main__:run_experiment:211 - 
+============================================================
+2026-05-30 23:22:33.716 | INFO     | __main__:run_experiment:212 - RESULTS — k=10 | trained on ['2026-05-25'] | tested on ['2026-05-13']
+2026-05-30 23:22:33.717 | INFO     | __main__:run_experiment:216 - Model                             Kappa  MacroF1   F1-dn   F1-up
+2026-05-30 23:22:33.717 | INFO     | __main__:run_experiment:219 - -----------------------------------------------------------------
+2026-05-30 23:22:33.717 | INFO     | __main__:_row:229 - LogisticRegression               0.0293   0.1998  0.1018  0.0932
+2026-05-30 23:22:33.717 | INFO     | __main__:_row:229 - MLP                              0.0180   0.3424  0.0428  0.0639
+2026-05-30 23:22:33.717 | INFO     | __main__:_row:229 - DeepLOB                          0.0226   0.2315  0.0968  0.0886
+2026-05-30 23:22:33.718 | INFO     | __main__:_row:229 - LOBAttention                     0.0587   0.3258  0.1106  0.1269
+2026-05-30 23:22:33.718 | INFO     | __main__:run_experiment:119 - 
+============================================================
+2026-05-30 23:22:33.718 | INFO     | __main__:run_experiment:120 - Horizon k=20
+2026-05-30 23:22:33.718 | INFO     | __main__:run_experiment:121 - ============================================================
+2026-05-30 23:22:35.558 | INFO     | src.features.engineering:compute_labels:76 - k=20: auto-calibrated alpha=0.000214 (0.0214% | targets 15% flat)
+2026-05-30 23:22:36.285 | INFO     | src.features.engineering:compute_labels:95 - Labels k= 20: up= 8,649 (7.6%) | flat=96,644 (85.0%) | down= 8,406 (7.4%)
+2026-05-30 23:22:36.288 | INFO     | __main__:run_experiment:134 - Train alpha (calibrated): 0.000214 (0.0214% of mid-price)
+2026-05-30 23:22:37.799 | INFO     | src.features.engineering:compute_labels:95 - Labels k= 20: up= 1,575 (2.8%) | flat=54,048 (94.5%) | down= 1,543 (2.7%)
+2026-05-30 23:22:38.526 | INFO     | src.features.engineering:build_dataset_cross_day:381 -   Train BTCUSDT: train=32,128 | val=5,669 | classes={-1: 1399, 0: 29393, 1: 1336}
+2026-05-30 23:22:39.106 | INFO     | src.features.engineering:build_dataset_cross_day:381 -   Train ETHUSDT: train=32,128 | val=5,669 | classes={-1: 2667, 0: 26802, 1: 2659}
+2026-05-30 23:22:39.485 | INFO     | src.features.engineering:build_dataset_cross_day:381 -   Train SOLUSDT: train=32,127 | val=5,669 | classes={-1: 3252, 0: 25585, 1: 3290}
+2026-05-30 23:22:39.694 | INFO     | src.features.engineering:build_dataset_cross_day:415 -   Test BTCUSDT: sequences=28,478 | classes={-1: 428, 0: 27764, 1: 386}
+2026-05-30 23:22:40.559 | INFO     | src.features.engineering:build_dataset_cross_day:415 -   Test ETHUSDT: sequences=28,479 | classes={-1: 1115, 0: 26275, 1: 1189}
+2026-05-30 23:22:54.941 | INFO     | src.features.engineering:build_dataset_cross_day:437 - 
+Cross-day dataset | horizon=k20 | seq_len=100 | features=41
+2026-05-30 23:22:54.971 | INFO     | src.features.engineering:build_dataset_cross_day:441 -   train=96,383 | val=17,007 | test=56,957
+2026-05-30 23:22:54.997 | INFO     | src.features.engineering:build_dataset_cross_day:445 -   train class distribution: {-1: 7318, 0: 81780, 1: 7285}
+2026-05-30 23:22:54.998 | INFO     | src.features.engineering:build_dataset_cross_day:445 -   val class distribution: {-1: 1052, 0: 14647, 1: 1308}
+2026-05-30 23:22:55.000 | INFO     | src.features.engineering:build_dataset_cross_day:445 -   test class distribution: {-1: 1523, 0: 53876, 1: 1558}
+2026-05-30 23:22:55.170 | INFO     | __main__:run_experiment:165 - Running sklearn baselines...
+2026-05-30 23:22:55.177 | INFO     | src.models.baselines:run_logistic_regression:114 - Running Logistic Regression baseline...
+2026-05-30 23:23:08.117 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-30 23:23:08.118 | INFO     | src.models.baselines:evaluate:76 - Model: LogisticRegression [val]
+2026-05-30 23:23:08.118 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['down', 'flat', 'up']
+2026-05-30 23:23:08.119 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0911
+2026-05-30 23:23:08.119 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.3103
+2026-05-30 23:23:08.119 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    down=0.1841 | flat=0.5277 | up=0.2190
+2026-05-30 23:23:08.119 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.11      0.61      0.18      1052
+        flat       0.94      0.37      0.53     14647
+          up       0.14      0.56      0.22      1308
+
+    accuracy                           0.40     17007
+   macro avg       0.39      0.51      0.31     17007
+weighted avg       0.82      0.40      0.48     17007
+
+2026-05-30 23:23:08.124 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[ 638  182  232]
+ [4846 5380 4421]
+ [ 395  180  733]]
+2026-05-30 23:23:08.405 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-30 23:23:08.406 | INFO     | src.models.baselines:evaluate:76 - Model: LogisticRegression [test]
+2026-05-30 23:23:08.406 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['down', 'flat', 'up']
+2026-05-30 23:23:08.406 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0263
+2026-05-30 23:23:08.406 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.2174
+2026-05-30 23:23:08.406 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    down=0.0696 | flat=0.5085 | up=0.0742
+2026-05-30 23:23:08.406 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.04      0.21      0.07      1523
+        flat       0.97      0.34      0.51     53876
+          up       0.04      0.76      0.07      1558
+
+    accuracy                           0.35     56957
+   macro avg       0.35      0.44      0.22     56957
+weighted avg       0.92      0.35      0.48     56957
+
+2026-05-30 23:23:08.406 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[  313   259   951]
+ [ 7031 18537 28308]
+ [  127   243  1188]]
+2026-05-30 23:23:08.407 | INFO     | src.models.baselines:run_mlp:163 - Running MLP baseline...
+2026-05-30 23:31:59.389 | INFO     | src.models.baselines:run_mlp:194 - MLP converged after 39 iterations
+2026-05-30 23:31:59.975 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-30 23:31:59.976 | INFO     | src.models.baselines:evaluate:76 - Model: MLP [val]
+2026-05-30 23:31:59.976 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['down', 'flat', 'up']
+2026-05-30 23:31:59.976 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0159
+2026-05-30 23:31:59.976 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.3357
+2026-05-30 23:31:59.977 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    down=0.0449 | flat=0.8973 | up=0.0651
+2026-05-30 23:31:59.977 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.07      0.03      0.04      1052
+        flat       0.86      0.93      0.90     14647
+          up       0.10      0.05      0.07      1308
+
+    accuracy                           0.81     17007
+   macro avg       0.34      0.34      0.34     17007
+weighted avg       0.76      0.81      0.78     17007
+
+2026-05-30 23:31:59.977 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[   35   950    67]
+ [  442 13678   527]
+ [   31  1213    64]]
+2026-05-30 23:32:01.666 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-30 23:32:01.667 | INFO     | src.models.baselines:evaluate:76 - Model: MLP [test]
+2026-05-30 23:32:01.667 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['down', 'flat', 'up']
+2026-05-30 23:32:01.667 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0263
+2026-05-30 23:32:01.667 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.3433
+2026-05-30 23:32:01.667 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    down=0.0467 | flat=0.9345 | up=0.0488
+2026-05-30 23:32:01.667 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.04      0.05      0.05      1523
+        flat       0.95      0.92      0.93     53876
+          up       0.04      0.07      0.05      1558
+
+    accuracy                           0.87     56957
+   macro avg       0.34      0.35      0.34     56957
+weighted avg       0.90      0.87      0.89     56957
+
+2026-05-30 23:32:01.672 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[   75  1316   132]
+ [ 1545 49621  2710]
+ [   68  1380   110]]
+2026-05-30 23:32:01.693 | INFO     | src.models.baselines:run_baselines:234 - Baseline results saved → experiments/20260531_023230/baselines_20260531_033201.json
+2026-05-30 23:32:01.693 | INFO     | src.models.baselines:run_baselines:237 - 
+{'='*50}
+2026-05-30 23:32:01.693 | INFO     | src.models.baselines:run_baselines:238 - BASELINE COMPARISON (test set)
+2026-05-30 23:32:01.693 | INFO     | src.models.baselines:run_baselines:239 - Model                        Kappa  MacroF1  F1-down    F1-up
+2026-05-30 23:32:01.694 | INFO     | src.models.baselines:run_baselines:240 - ------------------------------------------------------------
+2026-05-30 23:32:01.694 | INFO     | src.models.baselines:run_baselines:243 - logistic_regression         0.0263   0.2174   0.0696   0.0742
+2026-05-30 23:32:01.694 | INFO     | src.models.baselines:run_baselines:243 - mlp                         0.0263   0.3433   0.0467   0.0488
+2026-05-30 23:32:02.607 | INFO     | __main__:run_experiment:177 - Training DeepLOB...
+2026-05-30 23:32:02.780 | INFO     | src.models.architectures:build_model:440 - Built DeepLOB | params=77,248
+2026-05-30 23:32:02.808 | INFO     | src.models.trainer:get_device:20 - Using GPU: NVIDIA GeForce GTX 1650
+2026-05-30 23:32:02.896 | INFO     | src.models.trainer:train:108 - Training DeepLOB_k20 | epochs=50 | patience=10 | device=cuda
+2026-05-30 23:33:01.506 | INFO     | src.models.trainer:train:149 - Epoch   1/50 | train_loss=1.0794 | val_loss=1.1138 | val_kappa=-0.0008 | val_f1=0.0697 | lr=9.99e-04 | time=58.6s
+2026-05-30 23:33:01.558 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=-0.0008 — checkpoint saved
+2026-05-30 23:34:23.335 | INFO     | src.models.trainer:train:149 - Epoch   2/50 | train_loss=1.0715 | val_loss=1.1422 | val_kappa=0.0053 | val_f1=0.0914 | lr=9.96e-04 | time=81.8s
+2026-05-30 23:34:23.369 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0053 — checkpoint saved
+2026-05-30 23:35:45.912 | INFO     | src.models.trainer:train:149 - Epoch   3/50 | train_loss=1.0569 | val_loss=1.0825 | val_kappa=0.0078 | val_f1=0.1564 | lr=9.91e-04 | time=82.5s
+2026-05-30 23:35:45.936 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0078 — checkpoint saved
+2026-05-30 23:37:08.352 | INFO     | src.models.trainer:train:149 - Epoch   4/50 | train_loss=1.0494 | val_loss=1.1503 | val_kappa=0.0009 | val_f1=0.1648 | lr=9.84e-04 | time=82.4s
+2026-05-30 23:38:33.165 | INFO     | src.models.trainer:train:149 - Epoch   5/50 | train_loss=1.0429 | val_loss=1.3796 | val_kappa=0.0029 | val_f1=0.0608 | lr=9.76e-04 | time=84.8s
+2026-05-30 23:40:01.314 | INFO     | src.models.trainer:train:149 - Epoch   6/50 | train_loss=1.0379 | val_loss=1.3449 | val_kappa=0.0001 | val_f1=0.0489 | lr=9.65e-04 | time=88.1s
+2026-05-30 23:41:30.594 | INFO     | src.models.trainer:train:149 - Epoch   7/50 | train_loss=1.0304 | val_loss=1.4692 | val_kappa=0.0000 | val_f1=0.0394 | lr=9.52e-04 | time=89.3s
+2026-05-30 23:42:58.638 | INFO     | src.models.trainer:train:149 - Epoch   8/50 | train_loss=1.0241 | val_loss=1.3344 | val_kappa=-0.0006 | val_f1=0.0521 | lr=9.38e-04 | time=88.0s
+2026-05-30 23:44:26.375 | INFO     | src.models.trainer:train:149 - Epoch   9/50 | train_loss=1.0211 | val_loss=1.1712 | val_kappa=0.0023 | val_f1=0.1562 | lr=9.22e-04 | time=87.7s
+2026-05-30 23:45:54.955 | INFO     | src.models.trainer:train:149 - Epoch  10/50 | train_loss=1.0097 | val_loss=1.4087 | val_kappa=0.0009 | val_f1=0.0634 | lr=9.05e-04 | time=88.6s
+2026-05-30 23:47:23.749 | INFO     | src.models.trainer:train:149 - Epoch  11/50 | train_loss=1.0040 | val_loss=1.1437 | val_kappa=0.0091 | val_f1=0.2052 | lr=8.85e-04 | time=88.8s
+2026-05-30 23:47:23.771 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0091 — checkpoint saved
+2026-05-30 23:48:54.591 | INFO     | src.models.trainer:train:149 - Epoch  12/50 | train_loss=0.9946 | val_loss=1.2756 | val_kappa=-0.0018 | val_f1=0.1778 | lr=8.65e-04 | time=90.8s
+2026-05-30 23:50:23.233 | INFO     | src.models.trainer:train:149 - Epoch  13/50 | train_loss=0.9910 | val_loss=1.1349 | val_kappa=0.0053 | val_f1=0.2367 | lr=8.42e-04 | time=88.6s
+2026-05-30 23:51:51.754 | INFO     | src.models.trainer:train:149 - Epoch  14/50 | train_loss=0.9797 | val_loss=1.3268 | val_kappa=-0.0070 | val_f1=0.1816 | lr=8.19e-04 | time=88.5s
+2026-05-30 23:53:22.516 | INFO     | src.models.trainer:train:149 - Epoch  15/50 | train_loss=0.9688 | val_loss=1.2174 | val_kappa=0.0037 | val_f1=0.2358 | lr=7.94e-04 | time=90.8s
+2026-05-30 23:54:51.299 | INFO     | src.models.trainer:train:149 - Epoch  16/50 | train_loss=0.9482 | val_loss=1.6253 | val_kappa=-0.0025 | val_f1=0.0539 | lr=7.68e-04 | time=88.8s
+2026-05-30 23:56:21.918 | INFO     | src.models.trainer:train:149 - Epoch  17/50 | train_loss=0.9203 | val_loss=1.4075 | val_kappa=-0.0009 | val_f1=0.2288 | lr=7.41e-04 | time=90.6s
+2026-05-30 23:57:54.904 | INFO     | src.models.trainer:train:149 - Epoch  18/50 | train_loss=0.8979 | val_loss=1.4155 | val_kappa=0.0104 | val_f1=0.2254 | lr=7.13e-04 | time=93.0s
+2026-05-30 23:57:54.930 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0104 — checkpoint saved
+2026-05-30 23:59:21.870 | INFO     | src.models.trainer:train:149 - Epoch  19/50 | train_loss=0.8906 | val_loss=1.4838 | val_kappa=-0.0179 | val_f1=0.2416 | lr=6.84e-04 | time=86.9s
+2026-05-31 00:00:54.478 | INFO     | src.models.trainer:train:149 - Epoch  20/50 | train_loss=0.8674 | val_loss=1.5714 | val_kappa=0.0098 | val_f1=0.1993 | lr=6.55e-04 | time=92.6s
+2026-05-31 00:02:20.574 | INFO     | src.models.trainer:train:149 - Epoch  21/50 | train_loss=0.8433 | val_loss=2.0922 | val_kappa=0.0016 | val_f1=0.0547 | lr=6.25e-04 | time=86.1s
+2026-05-31 00:03:45.444 | INFO     | src.models.trainer:train:149 - Epoch  22/50 | train_loss=0.8345 | val_loss=1.3987 | val_kappa=0.0354 | val_f1=0.2960 | lr=5.94e-04 | time=84.9s
+2026-05-31 00:03:45.466 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0354 — checkpoint saved
+2026-05-31 00:05:13.102 | INFO     | src.models.trainer:train:149 - Epoch  23/50 | train_loss=0.8057 | val_loss=1.9551 | val_kappa=0.0127 | val_f1=0.1407 | lr=5.63e-04 | time=87.6s
+2026-05-31 00:06:43.972 | INFO     | src.models.trainer:train:149 - Epoch  24/50 | train_loss=0.7781 | val_loss=1.7372 | val_kappa=0.0086 | val_f1=0.2530 | lr=5.32e-04 | time=90.9s
+2026-05-31 00:08:15.037 | INFO     | src.models.trainer:train:149 - Epoch  25/50 | train_loss=0.7445 | val_loss=1.8001 | val_kappa=-0.0365 | val_f1=0.2692 | lr=5.00e-04 | time=91.1s
+2026-05-31 00:09:46.129 | INFO     | src.models.trainer:train:149 - Epoch  26/50 | train_loss=0.7170 | val_loss=1.8881 | val_kappa=-0.0501 | val_f1=0.2556 | lr=4.69e-04 | time=91.1s
+2026-05-31 00:11:19.164 | INFO     | src.models.trainer:train:149 - Epoch  27/50 | train_loss=0.6926 | val_loss=2.0054 | val_kappa=-0.0384 | val_f1=0.2504 | lr=4.38e-04 | time=93.0s
+2026-05-31 00:12:52.218 | INFO     | src.models.trainer:train:149 - Epoch  28/50 | train_loss=0.6644 | val_loss=1.9842 | val_kappa=-0.0319 | val_f1=0.2454 | lr=4.07e-04 | time=93.1s
+2026-05-31 00:14:23.065 | INFO     | src.models.trainer:train:149 - Epoch  29/50 | train_loss=0.6354 | val_loss=2.1175 | val_kappa=-0.0330 | val_f1=0.2521 | lr=3.76e-04 | time=90.8s
+2026-05-31 00:15:54.079 | INFO     | src.models.trainer:train:149 - Epoch  30/50 | train_loss=0.6038 | val_loss=2.2376 | val_kappa=-0.0269 | val_f1=0.2415 | lr=3.46e-04 | time=91.0s
+2026-05-31 00:17:27.447 | INFO     | src.models.trainer:train:149 - Epoch  31/50 | train_loss=0.5766 | val_loss=2.1156 | val_kappa=-0.0462 | val_f1=0.2710 | lr=3.17e-04 | time=93.4s
+2026-05-31 00:19:00.588 | INFO     | src.models.trainer:train:149 - Epoch  32/50 | train_loss=0.5532 | val_loss=1.9142 | val_kappa=0.0497 | val_f1=0.3516 | lr=2.88e-04 | time=93.1s
+2026-05-31 00:19:00.612 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0497 — checkpoint saved
+2026-05-31 00:20:31.239 | INFO     | src.models.trainer:train:149 - Epoch  33/50 | train_loss=0.5218 | val_loss=1.9527 | val_kappa=0.0054 | val_f1=0.3112 | lr=2.60e-04 | time=90.6s
+2026-05-31 00:22:04.201 | INFO     | src.models.trainer:train:149 - Epoch  34/50 | train_loss=0.5020 | val_loss=1.9892 | val_kappa=0.0306 | val_f1=0.3335 | lr=2.33e-04 | time=93.0s
+2026-05-31 00:23:35.473 | INFO     | src.models.trainer:train:149 - Epoch  35/50 | train_loss=0.4979 | val_loss=2.4518 | val_kappa=-0.0396 | val_f1=0.2284 | lr=2.07e-04 | time=91.3s
+2026-05-31 00:25:08.420 | INFO     | src.models.trainer:train:149 - Epoch  36/50 | train_loss=0.4730 | val_loss=2.0863 | val_kappa=0.0034 | val_f1=0.3144 | lr=1.82e-04 | time=92.9s
+2026-05-31 00:26:41.483 | INFO     | src.models.trainer:train:149 - Epoch  37/50 | train_loss=0.4443 | val_loss=2.5158 | val_kappa=-0.0534 | val_f1=0.2617 | lr=1.59e-04 | time=93.1s
+2026-05-31 00:28:12.628 | INFO     | src.models.trainer:train:149 - Epoch  38/50 | train_loss=0.4168 | val_loss=2.3431 | val_kappa=-0.0048 | val_f1=0.2500 | lr=1.36e-04 | time=91.1s
+2026-05-31 00:29:45.413 | INFO     | src.models.trainer:train:149 - Epoch  39/50 | train_loss=0.3987 | val_loss=2.3382 | val_kappa=-0.0168 | val_f1=0.2575 | lr=1.16e-04 | time=92.8s
+2026-05-31 00:31:18.511 | INFO     | src.models.trainer:train:149 - Epoch  40/50 | train_loss=0.3836 | val_loss=2.3374 | val_kappa=-0.0013 | val_f1=0.2680 | lr=9.64e-05 | time=93.1s
+2026-05-31 00:32:47.436 | INFO     | src.models.trainer:train:149 - Epoch  41/50 | train_loss=0.3738 | val_loss=2.3042 | val_kappa=0.0016 | val_f1=0.2723 | lr=7.88e-05 | time=88.9s
+2026-05-31 00:34:20.129 | INFO     | src.models.trainer:train:149 - Epoch  42/50 | train_loss=0.3582 | val_loss=2.3801 | val_kappa=0.0148 | val_f1=0.2865 | lr=6.28e-05 | time=92.7s
+2026-05-31 00:34:20.130 | INFO     | src.models.trainer:train:177 - Early stopping at epoch 42 (no improvement for 10 epochs)
+2026-05-31 00:34:20.141 | INFO     | src.models.trainer:train:182 - Restored best model (kappa=0.0497)
+2026-05-31 00:34:20.142 | INFO     | src.models.trainer:evaluate_test:187 - Evaluating DeepLOB_k20 on test set...
+2026-05-31 00:34:31.988 | INFO     | src.models.trainer:evaluate_test:224 - 
+Test Results — DeepLOB_k20
+2026-05-31 00:34:31.989 | INFO     | src.models.trainer:evaluate_test:225 - Kappa:    0.0191
+2026-05-31 00:34:31.989 | INFO     | src.models.trainer:evaluate_test:226 - Macro F1: 0.2613
+2026-05-31 00:34:31.989 | INFO     | src.models.trainer:evaluate_test:227 - 
+              precision    recall  f1-score   support
+
+        down       0.04      0.50      0.07      1523
+        flat       0.96      0.54      0.69     53876
+          up       0.01      0.07      0.02      1558
+
+    accuracy                           0.52     56957
+   macro avg       0.34      0.37      0.26     56957
+weighted avg       0.91      0.52      0.65     56957
+
+2026-05-31 00:34:31.990 | INFO     | src.models.trainer:evaluate_test:233 - Test results saved → experiments/20260531_023230/DeepLOB_k20_test_20260531_043431.json
+2026-05-31 00:34:31.991 | INFO     | __main__:run_experiment:195 - Training LOBAttention...
+2026-05-31 00:34:32.006 | INFO     | src.models.architectures:build_model:440 - Built LevelConditionalAttention | params=82,637
+2026-05-31 00:34:32.007 | INFO     | src.models.trainer:get_device:20 - Using GPU: NVIDIA GeForce GTX 1650
+2026-05-31 00:34:32.015 | INFO     | src.models.trainer:train:108 - Training LOBAttention_k20 | epochs=50 | patience=10 | device=cuda
+2026-05-31 00:34:57.354 | INFO     | src.models.trainer:train:149 - Epoch   1/50 | train_loss=1.0663 | val_loss=1.0716 | val_kappa=0.0241 | val_f1=0.1509 | lr=9.99e-04 | time=25.3s
+2026-05-31 00:34:57.361 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0241 — checkpoint saved
+2026-05-31 00:35:19.596 | INFO     | src.models.trainer:train:149 - Epoch   2/50 | train_loss=1.0594 | val_loss=1.0382 | val_kappa=0.0389 | val_f1=0.1920 | lr=9.96e-04 | time=22.2s
+2026-05-31 00:35:19.604 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0389 — checkpoint saved
+2026-05-31 00:35:39.904 | INFO     | src.models.trainer:train:149 - Epoch   3/50 | train_loss=1.0531 | val_loss=1.0122 | val_kappa=0.0658 | val_f1=0.3247 | lr=9.91e-04 | time=20.3s
+2026-05-31 00:35:39.907 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0658 — checkpoint saved
+2026-05-31 00:36:01.178 | INFO     | src.models.trainer:train:149 - Epoch   4/50 | train_loss=1.0471 | val_loss=1.0026 | val_kappa=0.0687 | val_f1=0.3129 | lr=9.84e-04 | time=21.3s
+2026-05-31 00:36:01.187 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0687 — checkpoint saved
+2026-05-31 00:36:23.678 | INFO     | src.models.trainer:train:149 - Epoch   5/50 | train_loss=1.0441 | val_loss=1.0011 | val_kappa=0.0767 | val_f1=0.2785 | lr=9.76e-04 | time=22.5s
+2026-05-31 00:36:23.686 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0767 — checkpoint saved
+2026-05-31 00:36:45.668 | INFO     | src.models.trainer:train:149 - Epoch   6/50 | train_loss=1.0435 | val_loss=1.0159 | val_kappa=0.0731 | val_f1=0.2783 | lr=9.65e-04 | time=22.0s
+2026-05-31 00:37:05.012 | INFO     | src.models.trainer:train:149 - Epoch   7/50 | train_loss=1.0440 | val_loss=1.0073 | val_kappa=0.0868 | val_f1=0.2951 | lr=9.52e-04 | time=19.3s
+2026-05-31 00:37:05.020 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0868 — checkpoint saved
+2026-05-31 00:37:27.304 | INFO     | src.models.trainer:train:149 - Epoch   8/50 | train_loss=1.0427 | val_loss=1.0089 | val_kappa=0.0838 | val_f1=0.2958 | lr=9.38e-04 | time=22.3s
+2026-05-31 00:37:51.022 | INFO     | src.models.trainer:train:149 - Epoch   9/50 | train_loss=1.0403 | val_loss=0.9941 | val_kappa=0.0812 | val_f1=0.2921 | lr=9.22e-04 | time=23.7s
+2026-05-31 00:38:11.970 | INFO     | src.models.trainer:train:149 - Epoch  10/50 | train_loss=1.0387 | val_loss=0.9861 | val_kappa=0.0866 | val_f1=0.2960 | lr=9.05e-04 | time=20.9s
+2026-05-31 00:38:34.310 | INFO     | src.models.trainer:train:149 - Epoch  11/50 | train_loss=1.0386 | val_loss=0.9847 | val_kappa=0.0787 | val_f1=0.3605 | lr=8.85e-04 | time=22.3s
+2026-05-31 00:38:56.349 | INFO     | src.models.trainer:train:149 - Epoch  12/50 | train_loss=1.0369 | val_loss=0.9889 | val_kappa=0.0827 | val_f1=0.3391 | lr=8.65e-04 | time=22.0s
+2026-05-31 00:39:18.656 | INFO     | src.models.trainer:train:149 - Epoch  13/50 | train_loss=1.0345 | val_loss=0.9817 | val_kappa=0.0872 | val_f1=0.3001 | lr=8.42e-04 | time=22.3s
+2026-05-31 00:39:18.665 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0872 — checkpoint saved
+2026-05-31 00:39:38.027 | INFO     | src.models.trainer:train:149 - Epoch  14/50 | train_loss=1.0356 | val_loss=0.9844 | val_kappa=0.0871 | val_f1=0.3198 | lr=8.19e-04 | time=19.4s
+2026-05-31 00:40:00.171 | INFO     | src.models.trainer:train:149 - Epoch  15/50 | train_loss=1.0349 | val_loss=0.9818 | val_kappa=0.0900 | val_f1=0.3054 | lr=7.94e-04 | time=22.1s
+2026-05-31 00:40:00.179 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0900 — checkpoint saved
+2026-05-31 00:40:22.531 | INFO     | src.models.trainer:train:149 - Epoch  16/50 | train_loss=1.0340 | val_loss=0.9780 | val_kappa=0.0912 | val_f1=0.3068 | lr=7.68e-04 | time=22.4s
+2026-05-31 00:40:22.539 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0912 — checkpoint saved
+2026-05-31 00:40:43.713 | INFO     | src.models.trainer:train:149 - Epoch  17/50 | train_loss=1.0333 | val_loss=0.9793 | val_kappa=0.0930 | val_f1=0.3103 | lr=7.41e-04 | time=21.2s
+2026-05-31 00:40:43.716 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0930 — checkpoint saved
+2026-05-31 00:41:04.408 | INFO     | src.models.trainer:train:149 - Epoch  18/50 | train_loss=1.0320 | val_loss=0.9810 | val_kappa=0.0927 | val_f1=0.3104 | lr=7.13e-04 | time=20.7s
+2026-05-31 00:41:26.513 | INFO     | src.models.trainer:train:149 - Epoch  19/50 | train_loss=1.0291 | val_loss=0.9773 | val_kappa=0.0895 | val_f1=0.3059 | lr=6.84e-04 | time=22.1s
+2026-05-31 00:41:48.602 | INFO     | src.models.trainer:train:149 - Epoch  20/50 | train_loss=1.0306 | val_loss=0.9796 | val_kappa=0.0870 | val_f1=0.3154 | lr=6.55e-04 | time=22.1s
+2026-05-31 00:42:08.026 | INFO     | src.models.trainer:train:149 - Epoch  21/50 | train_loss=1.0295 | val_loss=0.9808 | val_kappa=0.0882 | val_f1=0.3101 | lr=6.25e-04 | time=19.4s
+2026-05-31 00:42:31.217 | INFO     | src.models.trainer:train:149 - Epoch  22/50 | train_loss=1.0275 | val_loss=0.9763 | val_kappa=0.0889 | val_f1=0.3133 | lr=5.94e-04 | time=23.2s
+2026-05-31 00:42:52.758 | INFO     | src.models.trainer:train:149 - Epoch  23/50 | train_loss=1.0271 | val_loss=0.9783 | val_kappa=0.0891 | val_f1=0.3020 | lr=5.63e-04 | time=21.5s
+2026-05-31 00:43:12.828 | INFO     | src.models.trainer:train:149 - Epoch  24/50 | train_loss=1.0256 | val_loss=0.9740 | val_kappa=0.0905 | val_f1=0.3052 | lr=5.32e-04 | time=20.1s
+2026-05-31 00:43:37.355 | INFO     | src.models.trainer:train:149 - Epoch  25/50 | train_loss=1.0235 | val_loss=0.9734 | val_kappa=0.0914 | val_f1=0.3040 | lr=5.00e-04 | time=24.5s
+2026-05-31 00:43:56.778 | INFO     | src.models.trainer:train:149 - Epoch  26/50 | train_loss=1.0213 | val_loss=0.9720 | val_kappa=0.0914 | val_f1=0.3095 | lr=4.69e-04 | time=19.4s
+2026-05-31 00:44:18.899 | INFO     | src.models.trainer:train:149 - Epoch  27/50 | train_loss=1.0203 | val_loss=0.9767 | val_kappa=0.0885 | val_f1=0.3192 | lr=4.38e-04 | time=22.1s
+2026-05-31 00:44:18.899 | INFO     | src.models.trainer:train:177 - Early stopping at epoch 27 (no improvement for 10 epochs)
+2026-05-31 00:44:18.900 | INFO     | src.models.trainer:train:182 - Restored best model (kappa=0.0930)
+2026-05-31 00:44:18.900 | INFO     | src.models.trainer:evaluate_test:187 - Evaluating LOBAttention_k20 on test set...
+2026-05-31 00:44:23.847 | INFO     | src.models.trainer:evaluate_test:224 - 
+Test Results — LOBAttention_k20
+2026-05-31 00:44:23.848 | INFO     | src.models.trainer:evaluate_test:225 - Kappa:    0.0486
+2026-05-31 00:44:23.848 | INFO     | src.models.trainer:evaluate_test:226 - Macro F1: 0.2823
+2026-05-31 00:44:23.849 | INFO     | src.models.trainer:evaluate_test:227 - 
+              precision    recall  f1-score   support
+
+        down       0.05      0.50      0.10      1523
+        flat       0.97      0.50      0.66     53876
+          up       0.05      0.49      0.09      1558
+
+    accuracy                           0.50     56957
+   macro avg       0.36      0.49      0.28     56957
+weighted avg       0.92      0.50      0.63     56957
+
+2026-05-31 00:44:23.850 | INFO     | src.models.trainer:evaluate_test:233 - Test results saved → experiments/20260531_023230/LOBAttention_k20_test_20260531_044423.json
+2026-05-31 00:44:23.851 | INFO     | __main__:run_experiment:211 - 
+============================================================
+2026-05-31 00:44:23.852 | INFO     | __main__:run_experiment:212 - RESULTS — k=20 | trained on ['2026-05-25'] | tested on ['2026-05-13']
+2026-05-31 00:44:23.852 | INFO     | __main__:run_experiment:216 - Model                             Kappa  MacroF1   F1-dn   F1-up
+2026-05-31 00:44:23.852 | INFO     | __main__:run_experiment:219 - -----------------------------------------------------------------
+2026-05-31 00:44:23.853 | INFO     | __main__:_row:229 - LogisticRegression               0.0263   0.2174  0.0696  0.0742
+2026-05-31 00:44:23.853 | INFO     | __main__:_row:229 - MLP                              0.0263   0.3433  0.0467  0.0488
+2026-05-31 00:44:23.853 | INFO     | __main__:_row:229 - DeepLOB                          0.0191   0.2613  0.0738  0.0222
+2026-05-31 00:44:23.853 | INFO     | __main__:_row:229 - LOBAttention                     0.0486   0.2823  0.0953  0.0922
+2026-05-31 00:44:23.853 | INFO     | __main__:run_experiment:119 - 
+============================================================
+2026-05-31 00:44:23.854 | INFO     | __main__:run_experiment:120 - Horizon k=50
+2026-05-31 00:44:23.854 | INFO     | __main__:run_experiment:121 - ============================================================
+2026-05-31 00:44:25.479 | INFO     | src.features.engineering:compute_labels:76 - k=50: auto-calibrated alpha=0.000346 (0.0346% | targets 15% flat)
+2026-05-31 00:44:26.896 | INFO     | src.features.engineering:compute_labels:95 - Labels k= 50: up= 8,760 (7.7%) | flat=96,567 (84.9%) | down= 8,282 (7.3%)
+2026-05-31 00:44:26.907 | INFO     | __main__:run_experiment:134 - Train alpha (calibrated): 0.000346 (0.0346% of mid-price)
+2026-05-31 00:44:28.489 | INFO     | src.features.engineering:compute_labels:95 - Labels k= 50: up= 1,481 (2.6%) | flat=54,219 (94.8%) | down= 1,406 (2.5%)
+2026-05-31 00:44:29.211 | INFO     | src.features.engineering:build_dataset_cross_day:381 -   Train BTCUSDT: train=32,102 | val=5,665 | classes={-1: 1351, 0: 29522, 1: 1229}
+2026-05-31 00:44:29.796 | INFO     | src.features.engineering:build_dataset_cross_day:381 -   Train ETHUSDT: train=32,102 | val=5,665 | classes={-1: 2571, 0: 26870, 1: 2661}
+2026-05-31 00:44:30.248 | INFO     | src.features.engineering:build_dataset_cross_day:381 -   Train SOLUSDT: train=32,102 | val=5,664 | classes={-1: 3259, 0: 25384, 1: 3459}
+2026-05-31 00:44:30.537 | INFO     | src.features.engineering:build_dataset_cross_day:415 -   Test BTCUSDT: sequences=28,448 | classes={-1: 370, 0: 27882, 1: 296}
+2026-05-31 00:44:30.883 | INFO     | src.features.engineering:build_dataset_cross_day:415 -   Test ETHUSDT: sequences=28,449 | classes={-1: 1036, 0: 26328, 1: 1185}
+2026-05-31 00:44:37.886 | INFO     | src.features.engineering:build_dataset_cross_day:437 - 
+Cross-day dataset | horizon=k50 | seq_len=100 | features=41
+2026-05-31 00:44:37.887 | INFO     | src.features.engineering:build_dataset_cross_day:441 -   train=96,306 | val=16,994 | test=56,897
+2026-05-31 00:44:37.888 | INFO     | src.features.engineering:build_dataset_cross_day:445 -   train class distribution: {-1: 7181, 0: 81776, 1: 7349}
+2026-05-31 00:44:37.888 | INFO     | src.features.engineering:build_dataset_cross_day:445 -   val class distribution: {-1: 1048, 0: 14609, 1: 1337}
+2026-05-31 00:44:37.889 | INFO     | src.features.engineering:build_dataset_cross_day:445 -   test class distribution: {-1: 1397, 0: 54028, 1: 1472}
+2026-05-31 00:44:37.935 | INFO     | __main__:run_experiment:165 - Running sklearn baselines...
+2026-05-31 00:44:37.935 | INFO     | src.models.baselines:run_logistic_regression:114 - Running Logistic Regression baseline...
+2026-05-31 00:44:57.479 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-31 00:44:57.479 | INFO     | src.models.baselines:evaluate:76 - Model: LogisticRegression [val]
+2026-05-31 00:44:57.479 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['down', 'flat', 'up']
+2026-05-31 00:44:57.480 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0866
+2026-05-31 00:44:57.480 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.3074
+2026-05-31 00:44:57.480 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    down=0.1770 | flat=0.5484 | up=0.1966
+2026-05-31 00:44:57.480 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.11      0.56      0.18      1048
+        flat       0.94      0.39      0.55     14609
+          up       0.12      0.50      0.20      1337
+
+    accuracy                           0.41     16994
+   macro avg       0.39      0.48      0.31     16994
+weighted avg       0.82      0.41      0.50     16994
+
+2026-05-31 00:44:57.481 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[ 583  183  282]
+ [4470 5659 4480]
+ [ 486  186  665]]
+2026-05-31 00:44:57.777 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-31 00:44:57.777 | INFO     | src.models.baselines:evaluate:76 - Model: LogisticRegression [test]
+2026-05-31 00:44:57.777 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['down', 'flat', 'up']
+2026-05-31 00:44:57.777 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0326
+2026-05-31 00:44:57.777 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.2582
+2026-05-31 00:44:57.777 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    down=0.0499 | flat=0.6478 | up=0.0767
+2026-05-31 00:44:57.777 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.03      0.13      0.05      1397
+        flat       0.97      0.49      0.65     54028
+          up       0.04      0.66      0.08      1472
+
+    accuracy                           0.48     56897
+   macro avg       0.35      0.43      0.26     56897
+weighted avg       0.92      0.48      0.62     56897
+
+2026-05-31 00:44:57.778 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[  187   356   854]
+ [ 5804 26249 21975]
+ [  101   402   969]]
+2026-05-31 00:44:57.782 | INFO     | src.models.baselines:run_mlp:163 - Running MLP baseline...
+2026-05-31 00:55:58.786 | INFO     | src.models.baselines:run_mlp:194 - MLP converged after 40 iterations
+2026-05-31 00:55:59.093 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-31 00:55:59.093 | INFO     | src.models.baselines:evaluate:76 - Model: MLP [val]
+2026-05-31 00:55:59.093 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['down', 'flat', 'up']
+2026-05-31 00:55:59.093 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0311
+2026-05-31 00:55:59.094 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.3519
+2026-05-31 00:55:59.094 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    down=0.0584 | flat=0.8876 | up=0.1097
+2026-05-31 00:55:59.094 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.07      0.05      0.06      1048
+        flat       0.86      0.91      0.89     14609
+          up       0.15      0.09      0.11      1337
+
+    accuracy                           0.80     16994
+   macro avg       0.36      0.35      0.35     16994
+weighted avg       0.76      0.80      0.78     16994
+
+2026-05-31 00:55:59.094 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[   53   947    48]
+ [  665 13348   596]
+ [   49  1173   115]]
+2026-05-31 00:56:01.005 | INFO     | src.models.baselines:evaluate:75 - 
+==================================================
+2026-05-31 00:56:01.006 | INFO     | src.models.baselines:evaluate:76 - Model: MLP [test]
+2026-05-31 00:56:01.006 | INFO     | src.models.baselines:evaluate:77 - Classes present: ['down', 'flat', 'up']
+2026-05-31 00:56:01.007 | INFO     | src.models.baselines:evaluate:78 - Cohen's Kappa:   0.0104
+2026-05-31 00:56:01.007 | INFO     | src.models.baselines:evaluate:79 - Macro F1:        0.3349
+2026-05-31 00:56:01.007 | INFO     | src.models.baselines:evaluate:81 - F1 per class:    down=0.0311 | flat=0.9305 | up=0.0429
+2026-05-31 00:56:01.008 | INFO     | src.models.baselines:evaluate:82 - 
+Classification Report:
+              precision    recall  f1-score   support
+
+        down       0.02      0.04      0.03      1397
+        flat       0.95      0.91      0.93     54028
+          up       0.03      0.06      0.04      1472
+
+    accuracy                           0.87     56897
+   macro avg       0.34      0.34      0.33     56897
+weighted avg       0.90      0.87      0.89     56897
+
+2026-05-31 00:56:01.009 | INFO     | src.models.baselines:evaluate:83 - Confusion Matrix:
+[[   59  1228   110]
+ [ 2277 49229  2522]
+ [   58  1324    90]]
+2026-05-31 00:56:01.052 | INFO     | src.models.baselines:run_baselines:234 - Baseline results saved → experiments/20260531_023230/baselines_20260531_045601.json
+2026-05-31 00:56:01.052 | INFO     | src.models.baselines:run_baselines:237 - 
+{'='*50}
+2026-05-31 00:56:01.053 | INFO     | src.models.baselines:run_baselines:238 - BASELINE COMPARISON (test set)
+2026-05-31 00:56:01.053 | INFO     | src.models.baselines:run_baselines:239 - Model                        Kappa  MacroF1  F1-down    F1-up
+2026-05-31 00:56:01.053 | INFO     | src.models.baselines:run_baselines:240 - ------------------------------------------------------------
+2026-05-31 00:56:01.054 | INFO     | src.models.baselines:run_baselines:243 - logistic_regression         0.0326   0.2582   0.0499   0.0767
+2026-05-31 00:56:01.054 | INFO     | src.models.baselines:run_baselines:243 - mlp                         0.0104   0.3349   0.0311   0.0429
+2026-05-31 00:56:02.407 | INFO     | __main__:run_experiment:177 - Training DeepLOB...
+2026-05-31 00:56:02.423 | INFO     | src.models.architectures:build_model:440 - Built DeepLOB | params=77,248
+2026-05-31 00:56:02.425 | INFO     | src.models.trainer:get_device:20 - Using GPU: NVIDIA GeForce GTX 1650
+2026-05-31 00:56:02.446 | INFO     | src.models.trainer:train:108 - Training DeepLOB_k50 | epochs=50 | patience=10 | device=cuda
+2026-05-31 00:57:14.811 | INFO     | src.models.trainer:train:149 - Epoch   1/50 | train_loss=1.0884 | val_loss=1.1093 | val_kappa=-0.0464 | val_f1=0.2555 | lr=9.99e-04 | time=72.4s
+2026-05-31 00:57:14.836 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=-0.0464 — checkpoint saved
+2026-05-31 00:58:44.280 | INFO     | src.models.trainer:train:149 - Epoch   2/50 | train_loss=1.0852 | val_loss=1.0996 | val_kappa=-0.0312 | val_f1=0.2512 | lr=9.96e-04 | time=89.4s
+2026-05-31 00:58:44.309 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=-0.0312 — checkpoint saved
+2026-05-31 01:00:18.332 | INFO     | src.models.trainer:train:149 - Epoch   3/50 | train_loss=1.0828 | val_loss=1.0994 | val_kappa=-0.0350 | val_f1=0.1877 | lr=9.91e-04 | time=94.0s
+2026-05-31 01:01:58.064 | INFO     | src.models.trainer:train:149 - Epoch   4/50 | train_loss=1.0798 | val_loss=1.0970 | val_kappa=-0.0143 | val_f1=0.3243 | lr=9.84e-04 | time=99.7s
+2026-05-31 01:01:58.089 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=-0.0143 — checkpoint saved
+2026-05-31 01:03:35.686 | INFO     | src.models.trainer:train:149 - Epoch   5/50 | train_loss=1.0744 | val_loss=1.0889 | val_kappa=0.0218 | val_f1=0.3489 | lr=9.76e-04 | time=97.6s
+2026-05-31 01:03:35.709 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0218 — checkpoint saved
+2026-05-31 01:05:16.876 | INFO     | src.models.trainer:train:149 - Epoch   6/50 | train_loss=1.0784 | val_loss=1.0938 | val_kappa=0.0000 | val_f1=0.3082 | lr=9.65e-04 | time=101.2s
+2026-05-31 01:06:57.841 | INFO     | src.models.trainer:train:149 - Epoch   7/50 | train_loss=1.0758 | val_loss=1.0744 | val_kappa=-0.0339 | val_f1=0.2909 | lr=9.52e-04 | time=101.0s
+2026-05-31 01:08:37.199 | INFO     | src.models.trainer:train:149 - Epoch   8/50 | train_loss=1.0699 | val_loss=1.0760 | val_kappa=-0.0171 | val_f1=0.2951 | lr=9.38e-04 | time=99.4s
+2026-05-31 01:10:18.223 | INFO     | src.models.trainer:train:149 - Epoch   9/50 | train_loss=1.0664 | val_loss=1.0800 | val_kappa=0.0085 | val_f1=0.3216 | lr=9.22e-04 | time=101.0s
+2026-05-31 01:11:59.546 | INFO     | src.models.trainer:train:149 - Epoch  10/50 | train_loss=1.0615 | val_loss=1.0797 | val_kappa=-0.0531 | val_f1=0.3022 | lr=9.05e-04 | time=101.3s
+2026-05-31 01:13:42.712 | INFO     | src.models.trainer:train:149 - Epoch  11/50 | train_loss=1.0579 | val_loss=1.0943 | val_kappa=0.0032 | val_f1=0.2940 | lr=8.85e-04 | time=103.2s
+2026-05-31 01:15:23.685 | INFO     | src.models.trainer:train:149 - Epoch  12/50 | train_loss=1.0551 | val_loss=1.1281 | val_kappa=-0.0071 | val_f1=0.1085 | lr=8.65e-04 | time=101.0s
+2026-05-31 01:17:05.255 | INFO     | src.models.trainer:train:149 - Epoch  13/50 | train_loss=1.0474 | val_loss=1.1089 | val_kappa=-0.0015 | val_f1=0.1894 | lr=8.42e-04 | time=101.6s
+2026-05-31 01:18:48.237 | INFO     | src.models.trainer:train:149 - Epoch  14/50 | train_loss=1.0382 | val_loss=1.1433 | val_kappa=-0.0174 | val_f1=0.1857 | lr=8.19e-04 | time=103.0s
+2026-05-31 01:20:30.292 | INFO     | src.models.trainer:train:149 - Epoch  15/50 | train_loss=1.0321 | val_loss=1.0946 | val_kappa=0.0034 | val_f1=0.3154 | lr=7.94e-04 | time=102.1s
+2026-05-31 01:20:30.292 | INFO     | src.models.trainer:train:177 - Early stopping at epoch 15 (no improvement for 10 epochs)
+2026-05-31 01:20:30.301 | INFO     | src.models.trainer:train:182 - Restored best model (kappa=0.0218)
+2026-05-31 01:20:30.301 | INFO     | src.models.trainer:evaluate_test:187 - Evaluating DeepLOB_k50 on test set...
+2026-05-31 01:20:44.472 | INFO     | src.models.trainer:evaluate_test:224 - 
+Test Results — DeepLOB_k50
+2026-05-31 01:20:44.472 | INFO     | src.models.trainer:evaluate_test:225 - Kappa:    -0.0001
+2026-05-31 01:20:44.473 | INFO     | src.models.trainer:evaluate_test:226 - Macro F1: 0.3247
+2026-05-31 01:20:44.473 | INFO     | src.models.trainer:evaluate_test:227 - 
+              precision    recall  f1-score   support
+
+        down       0.00      0.00      0.00      1397
+        flat       0.95      1.00      0.97     54028
+          up       0.00      0.00      0.00      1472
+
+    accuracy                           0.95     56897
+   macro avg       0.32      0.33      0.32     56897
+weighted avg       0.90      0.95      0.92     56897
+
+2026-05-31 01:20:44.474 | INFO     | src.models.trainer:evaluate_test:233 - Test results saved → experiments/20260531_023230/DeepLOB_k50_test_20260531_052044.json
+2026-05-31 01:20:44.476 | INFO     | __main__:run_experiment:195 - Training LOBAttention...
+2026-05-31 01:20:44.487 | INFO     | src.models.architectures:build_model:440 - Built LevelConditionalAttention | params=82,637
+2026-05-31 01:20:44.488 | INFO     | src.models.trainer:get_device:20 - Using GPU: NVIDIA GeForce GTX 1650
+2026-05-31 01:20:44.505 | INFO     | src.models.trainer:train:108 - Training LOBAttention_k50 | epochs=50 | patience=10 | device=cuda
+2026-05-31 01:21:12.611 | INFO     | src.models.trainer:train:149 - Epoch   1/50 | train_loss=1.0652 | val_loss=1.0570 | val_kappa=0.0707 | val_f1=0.3705 | lr=9.99e-04 | time=28.1s
+2026-05-31 01:21:12.614 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0707 — checkpoint saved
+2026-05-31 01:21:37.195 | INFO     | src.models.trainer:train:149 - Epoch   2/50 | train_loss=1.0576 | val_loss=1.0327 | val_kappa=0.0657 | val_f1=0.3594 | lr=9.96e-04 | time=24.6s
+2026-05-31 01:22:00.634 | INFO     | src.models.trainer:train:149 - Epoch   3/50 | train_loss=1.0505 | val_loss=1.0215 | val_kappa=0.0732 | val_f1=0.3689 | lr=9.91e-04 | time=23.4s
+2026-05-31 01:22:00.642 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0732 — checkpoint saved
+2026-05-31 01:22:27.297 | INFO     | src.models.trainer:train:149 - Epoch   4/50 | train_loss=1.0478 | val_loss=1.0084 | val_kappa=0.0893 | val_f1=0.3434 | lr=9.84e-04 | time=26.7s
+2026-05-31 01:22:27.308 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0893 — checkpoint saved
+2026-05-31 01:22:50.769 | INFO     | src.models.trainer:train:149 - Epoch   5/50 | train_loss=1.0440 | val_loss=0.9986 | val_kappa=0.0836 | val_f1=0.3735 | lr=9.76e-04 | time=23.5s
+2026-05-31 01:23:15.601 | INFO     | src.models.trainer:train:149 - Epoch   6/50 | train_loss=1.0422 | val_loss=0.9975 | val_kappa=0.0880 | val_f1=0.3478 | lr=9.65e-04 | time=24.8s
+2026-05-31 01:23:38.774 | INFO     | src.models.trainer:train:149 - Epoch   7/50 | train_loss=1.0399 | val_loss=0.9974 | val_kappa=0.0828 | val_f1=0.3370 | lr=9.52e-04 | time=23.2s
+2026-05-31 01:24:04.333 | INFO     | src.models.trainer:train:149 - Epoch   8/50 | train_loss=1.0421 | val_loss=0.9963 | val_kappa=0.0866 | val_f1=0.3783 | lr=9.38e-04 | time=25.6s
+2026-05-31 01:24:30.517 | INFO     | src.models.trainer:train:149 - Epoch   9/50 | train_loss=1.0395 | val_loss=0.9966 | val_kappa=0.0900 | val_f1=0.3236 | lr=9.22e-04 | time=26.2s
+2026-05-31 01:24:30.529 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0900 — checkpoint saved
+2026-05-31 01:24:53.854 | INFO     | src.models.trainer:train:149 - Epoch  10/50 | train_loss=1.0377 | val_loss=0.9895 | val_kappa=0.0948 | val_f1=0.3503 | lr=9.05e-04 | time=23.3s
+2026-05-31 01:24:53.864 | INFO     | src.models.trainer:train:172 -   ✓ New best kappa=0.0948 — checkpoint saved
+2026-05-31 01:25:17.436 | INFO     | src.models.trainer:train:149 - Epoch  11/50 | train_loss=1.0387 | val_loss=0.9946 | val_kappa=0.0912 | val_f1=0.3501 | lr=8.85e-04 | time=23.6s
+2026-05-31 01:25:42.491 | INFO     | src.models.trainer:train:149 - Epoch  12/50 | train_loss=1.0358 | val_loss=0.9936 | val_kappa=0.0868 | val_f1=0.3122 | lr=8.65e-04 | time=25.1s
+2026-05-31 01:26:07.501 | INFO     | src.models.trainer:train:149 - Epoch  13/50 | train_loss=1.0356 | val_loss=0.9882 | val_kappa=0.0900 | val_f1=0.3730 | lr=8.42e-04 | time=25.0s
+2026-05-31 01:26:31.560 | INFO     | src.models.trainer:train:149 - Epoch  14/50 | train_loss=1.0345 | val_loss=0.9873 | val_kappa=0.0939 | val_f1=0.3293 | lr=8.19e-04 | time=24.1s
+2026-05-31 01:26:59.315 | INFO     | src.models.trainer:train:149 - Epoch  15/50 | train_loss=1.0323 | val_loss=0.9915 | val_kappa=0.0915 | val_f1=0.3198 | lr=7.94e-04 | time=27.8s
+2026-05-31 01:27:22.414 | INFO     | src.models.trainer:train:149 - Epoch  16/50 | train_loss=1.0313 | val_loss=0.9922 | val_kappa=0.0929 | val_f1=0.3224 | lr=7.68e-04 | time=23.1s
+2026-05-31 01:27:46.969 | INFO     | src.models.trainer:train:149 - Epoch  17/50 | train_loss=1.0305 | val_loss=0.9897 | val_kappa=0.0904 | val_f1=0.3466 | lr=7.41e-04 | time=24.6s
+2026-05-31 01:28:10.360 | INFO     | src.models.trainer:train:149 - Epoch  18/50 | train_loss=1.0294 | val_loss=0.9841 | val_kappa=0.0943 | val_f1=0.3328 | lr=7.13e-04 | time=23.4s
+2026-05-31 01:28:36.293 | INFO     | src.models.trainer:train:149 - Epoch  19/50 | train_loss=1.0276 | val_loss=0.9838 | val_kappa=0.0912 | val_f1=0.3324 | lr=6.84e-04 | time=25.9s
+2026-05-31 01:29:02.280 | INFO     | src.models.trainer:train:149 - Epoch  20/50 | train_loss=1.0271 | val_loss=0.9846 | val_kappa=0.0934 | val_f1=0.3361 | lr=6.55e-04 | time=26.0s
+2026-05-31 01:29:02.280 | INFO     | src.models.trainer:train:177 - Early stopping at epoch 20 (no improvement for 10 epochs)
+2026-05-31 01:29:02.281 | INFO     | src.models.trainer:train:182 - Restored best model (kappa=0.0948)
+2026-05-31 01:29:02.282 | INFO     | src.models.trainer:evaluate_test:187 - Evaluating LOBAttention_k50 on test set...
+2026-05-31 01:29:08.368 | INFO     | src.models.trainer:evaluate_test:224 - 
+Test Results — LOBAttention_k50
+2026-05-31 01:29:08.368 | INFO     | src.models.trainer:evaluate_test:225 - Kappa:    0.0523
+2026-05-31 01:29:08.369 | INFO     | src.models.trainer:evaluate_test:226 - Macro F1: 0.3181
+2026-05-31 01:29:08.369 | INFO     | src.models.trainer:evaluate_test:227 - 
+              precision    recall  f1-score   support
+
+        down       0.05      0.50      0.08      1397
+        flat       0.97      0.65      0.78     54028
+          up       0.06      0.21      0.09      1472
+
+    accuracy                           0.64     56897
+   macro avg       0.36      0.45      0.32     56897
+weighted avg       0.92      0.64      0.74     56897
+
+2026-05-31 01:29:08.370 | INFO     | src.models.trainer:evaluate_test:233 - Test results saved → experiments/20260531_023230/LOBAttention_k50_test_20260531_052908.json
+2026-05-31 01:29:08.370 | INFO     | __main__:run_experiment:211 - 
+============================================================
+2026-05-31 01:29:08.371 | INFO     | __main__:run_experiment:212 - RESULTS — k=50 | trained on ['2026-05-25'] | tested on ['2026-05-13']
+2026-05-31 01:29:08.371 | INFO     | __main__:run_experiment:216 - Model                             Kappa  MacroF1   F1-dn   F1-up
+2026-05-31 01:29:08.371 | INFO     | __main__:run_experiment:219 - -----------------------------------------------------------------
+2026-05-31 01:29:08.371 | INFO     | __main__:_row:229 - LogisticRegression               0.0326   0.2582  0.0499  0.0767
+2026-05-31 01:29:08.372 | INFO     | __main__:_row:229 - MLP                              0.0104   0.3349  0.0311  0.0429
+2026-05-31 01:29:08.372 | INFO     | __main__:_row:229 - DeepLOB                         -0.0001   0.3247  0.0000  0.0000
+2026-05-31 01:29:08.373 | INFO     | __main__:_row:229 - LOBAttention                     0.0523   0.3181  0.0829  0.0927
+2026-05-31 01:29:08.377 | INFO     | __main__:run_experiment:254 - 
+All results saved → experiments/20260531_023230/all_results.json
+2026-05-31 01:29:08.377 | INFO     | __main__:run_experiment:255 - Experiment complete | dir=experiments/20260531_023230

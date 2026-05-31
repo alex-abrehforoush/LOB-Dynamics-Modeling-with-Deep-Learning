@@ -1,0 +1,440 @@
+{
+  "k10": {
+    "baselines": {
+      "logistic_regression": {
+        "val": {
+          "model": "LogisticRegression [val]",
+          "kappa": 0.0834,
+          "macro_f1": 0.3028,
+          "f1_down": 0.1892,
+          "f1_flat": 0.5147,
+          "f1_up": 0.2045,
+          "classes_present": [
+            "down",
+            "flat",
+            "up"
+          ],
+          "confusion_matrix": [
+            [
+              655,
+              199,
+              233
+            ],
+            [
+              4836,
+              5228,
+              4631
+            ],
+            [
+              345,
+              191,
+              694
+            ]
+          ]
+        },
+        "test": {
+          "model": "LogisticRegression [test]",
+          "kappa": 0.0293,
+          "macro_f1": 0.1998,
+          "f1_down": 0.1018,
+          "f1_flat": 0.4044,
+          "f1_up": 0.0932,
+          "classes_present": [
+            "down",
+            "flat",
+            "up"
+          ],
+          "confusion_matrix": [
+            [
+              638,
+              268,
+              989
+            ],
+            [
+              9805,
+              13577,
+              29712
+            ],
+            [
+              191,
+              200,
+              1597
+            ]
+          ]
+        }
+      },
+      "mlp": {
+        "val": {
+          "model": "MLP [val]",
+          "kappa": 0.0283,
+          "macro_f1": 0.3447,
+          "f1_down": 0.0678,
+          "f1_flat": 0.9048,
+          "f1_up": 0.0614,
+          "classes_present": [
+            "down",
+            "flat",
+            "up"
+          ],
+          "confusion_matrix": [
+            [
+              54,
+              999,
+              34
+            ],
+            [
+              412,
+              13906,
+              377
+            ],
+            [
+              39,
+              1139,
+              52
+            ]
+          ]
+        },
+        "test": {
+          "model": "MLP [test]",
+          "kappa": 0.018,
+          "macro_f1": 0.3424,
+          "f1_down": 0.0428,
+          "f1_flat": 0.9205,
+          "f1_up": 0.0639,
+          "classes_present": [
+            "down",
+            "flat",
+            "up"
+          ],
+          "confusion_matrix": [
+            [
+              91,
+              1706,
+              98
+            ],
+            [
+              2161,
+              48202,
+              2731
+            ],
+            [
+              105,
+              1724,
+              159
+            ]
+          ]
+        }
+      }
+    },
+    "deeplob": {
+      "model": "DeepLOB_k10",
+      "kappa": 0.0226,
+      "macro_f1": 0.2315,
+      "loss": 1.051311,
+      "f1_down": 0.0968,
+      "f1_flat": 0.509,
+      "f1_up": 0.0886
+    },
+    "lob_attention": {
+      "model": "LOBAttention_k10",
+      "kappa": 0.0587,
+      "macro_f1": 0.3258,
+      "loss": 0.913443,
+      "f1_down": 0.1106,
+      "f1_flat": 0.7401,
+      "f1_up": 0.1269
+    }
+  },
+  "k20": {
+    "baselines": {
+      "logistic_regression": {
+        "val": {
+          "model": "LogisticRegression [val]",
+          "kappa": 0.0911,
+          "macro_f1": 0.3103,
+          "f1_down": 0.1841,
+          "f1_flat": 0.5277,
+          "f1_up": 0.219,
+          "classes_present": [
+            "down",
+            "flat",
+            "up"
+          ],
+          "confusion_matrix": [
+            [
+              638,
+              182,
+              232
+            ],
+            [
+              4846,
+              5380,
+              4421
+            ],
+            [
+              395,
+              180,
+              733
+            ]
+          ]
+        },
+        "test": {
+          "model": "LogisticRegression [test]",
+          "kappa": 0.0263,
+          "macro_f1": 0.2174,
+          "f1_down": 0.0696,
+          "f1_flat": 0.5085,
+          "f1_up": 0.0742,
+          "classes_present": [
+            "down",
+            "flat",
+            "up"
+          ],
+          "confusion_matrix": [
+            [
+              313,
+              259,
+              951
+            ],
+            [
+              7031,
+              18537,
+              28308
+            ],
+            [
+              127,
+              243,
+              1188
+            ]
+          ]
+        }
+      },
+      "mlp": {
+        "val": {
+          "model": "MLP [val]",
+          "kappa": 0.0159,
+          "macro_f1": 0.3357,
+          "f1_down": 0.0449,
+          "f1_flat": 0.8973,
+          "f1_up": 0.0651,
+          "classes_present": [
+            "down",
+            "flat",
+            "up"
+          ],
+          "confusion_matrix": [
+            [
+              35,
+              950,
+              67
+            ],
+            [
+              442,
+              13678,
+              527
+            ],
+            [
+              31,
+              1213,
+              64
+            ]
+          ]
+        },
+        "test": {
+          "model": "MLP [test]",
+          "kappa": 0.0263,
+          "macro_f1": 0.3433,
+          "f1_down": 0.0467,
+          "f1_flat": 0.9345,
+          "f1_up": 0.0488,
+          "classes_present": [
+            "down",
+            "flat",
+            "up"
+          ],
+          "confusion_matrix": [
+            [
+              75,
+              1316,
+              132
+            ],
+            [
+              1545,
+              49621,
+              2710
+            ],
+            [
+              68,
+              1380,
+              110
+            ]
+          ]
+        }
+      }
+    },
+    "deeplob": {
+      "model": "DeepLOB_k20",
+      "kappa": 0.0191,
+      "macro_f1": 0.2613,
+      "loss": 1.879586,
+      "f1_down": 0.0738,
+      "f1_flat": 0.688,
+      "f1_up": 0.0222
+    },
+    "lob_attention": {
+      "model": "LOBAttention_k20",
+      "kappa": 0.0486,
+      "macro_f1": 0.2823,
+      "loss": 0.9265,
+      "f1_down": 0.0953,
+      "f1_flat": 0.6593,
+      "f1_up": 0.0922
+    }
+  },
+  "k50": {
+    "baselines": {
+      "logistic_regression": {
+        "val": {
+          "model": "LogisticRegression [val]",
+          "kappa": 0.0866,
+          "macro_f1": 0.3074,
+          "f1_down": 0.177,
+          "f1_flat": 0.5484,
+          "f1_up": 0.1966,
+          "classes_present": [
+            "down",
+            "flat",
+            "up"
+          ],
+          "confusion_matrix": [
+            [
+              583,
+              183,
+              282
+            ],
+            [
+              4470,
+              5659,
+              4480
+            ],
+            [
+              486,
+              186,
+              665
+            ]
+          ]
+        },
+        "test": {
+          "model": "LogisticRegression [test]",
+          "kappa": 0.0326,
+          "macro_f1": 0.2582,
+          "f1_down": 0.0499,
+          "f1_flat": 0.6478,
+          "f1_up": 0.0767,
+          "classes_present": [
+            "down",
+            "flat",
+            "up"
+          ],
+          "confusion_matrix": [
+            [
+              187,
+              356,
+              854
+            ],
+            [
+              5804,
+              26249,
+              21975
+            ],
+            [
+              101,
+              402,
+              969
+            ]
+          ]
+        }
+      },
+      "mlp": {
+        "val": {
+          "model": "MLP [val]",
+          "kappa": 0.0311,
+          "macro_f1": 0.3519,
+          "f1_down": 0.0584,
+          "f1_flat": 0.8876,
+          "f1_up": 0.1097,
+          "classes_present": [
+            "down",
+            "flat",
+            "up"
+          ],
+          "confusion_matrix": [
+            [
+              53,
+              947,
+              48
+            ],
+            [
+              665,
+              13348,
+              596
+            ],
+            [
+              49,
+              1173,
+              115
+            ]
+          ]
+        },
+        "test": {
+          "model": "MLP [test]",
+          "kappa": 0.0104,
+          "macro_f1": 0.3349,
+          "f1_down": 0.0311,
+          "f1_flat": 0.9305,
+          "f1_up": 0.0429,
+          "classes_present": [
+            "down",
+            "flat",
+            "up"
+          ],
+          "confusion_matrix": [
+            [
+              59,
+              1228,
+              110
+            ],
+            [
+              2277,
+              49229,
+              2522
+            ],
+            [
+              58,
+              1324,
+              90
+            ]
+          ]
+        }
+      }
+    },
+    "deeplob": {
+      "model": "DeepLOB_k50",
+      "kappa": -0.0001,
+      "macro_f1": 0.3247,
+      "loss": 1.068807,
+      "f1_down": 0.0,
+      "f1_flat": 0.9741,
+      "f1_up": 0.0
+    },
+    "lob_attention": {
+      "model": "LOBAttention_k50",
+      "kappa": 0.0523,
+      "macro_f1": 0.3181,
+      "loss": 0.878899,
+      "f1_down": 0.0829,
+      "f1_flat": 0.7786,
+      "f1_up": 0.0927
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "logistic_regression": {
+    "val": {
+      "model": "LogisticRegression [val]",
+      "kappa": 0.0911,
+      "macro_f1": 0.3103,
+      "f1_down": 0.1841,
+      "f1_flat": 0.5277,
+      "f1_up": 0.219,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          638,
+          182,
+          232
+        ],
+        [
+          4846,
+          5380,
+          4421
+        ],
+        [
+          395,
+          180,
+          733
+        ]
+      ]
+    },
+    "test": {
+      "model": "LogisticRegression [test]",
+      "kappa": 0.0263,
+      "macro_f1": 0.2174,
+      "f1_down": 0.0696,
+      "f1_flat": 0.5085,
+      "f1_up": 0.0742,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          313,
+          259,
+          951
+        ],
+        [
+          7031,
+          18537,
+          28308
+        ],
+        [
+          127,
+          243,
+          1188
+        ]
+      ]
+    }
+  },
+  "mlp": {
+    "val": {
+      "model": "MLP [val]",
+      "kappa": 0.0159,
+      "macro_f1": 0.3357,
+      "f1_down": 0.0449,
+      "f1_flat": 0.8973,
+      "f1_up": 0.0651,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          35,
+          950,
+          67
+        ],
+        [
+          442,
+          13678,
+          527
+        ],
+        [
+          31,
+          1213,
+          64
+        ]
+      ]
+    },
+    "test": {
+      "model": "MLP [test]",
+      "kappa": 0.0263,
+      "macro_f1": 0.3433,
+      "f1_down": 0.0467,
+      "f1_flat": 0.9345,
+      "f1_up": 0.0488,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          75,
+          1316,
+          132
+        ],
+        [
+          1545,
+          49621,
+          2710
+        ],
+        [
+          68,
+          1380,
+          110
+        ]
+      ]
+    }
+  }
+}

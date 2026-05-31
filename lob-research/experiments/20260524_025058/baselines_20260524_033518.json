@@ -1,0 +1,126 @@
+{
+  "logistic_regression": {
+    "val": {
+      "model": "LogisticRegression [val]",
+      "kappa": 0.0935,
+      "macro_f1": 0.3243,
+      "f1_down": 0.2214,
+      "f1_flat": 0.5919,
+      "f1_up": 0.1596,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          289,
+          139,
+          257
+        ],
+        [
+          1512,
+          3181,
+          2650
+        ],
+        [
+          125,
+          85,
+          296
+        ]
+      ]
+    },
+    "test": {
+      "model": "LogisticRegression [test]",
+      "kappa": 0.061,
+      "macro_f1": 0.3245,
+      "f1_down": 0.2184,
+      "f1_flat": 0.5371,
+      "f1_up": 0.2179,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          385,
+          407,
+          464
+        ],
+        [
+          1713,
+          2605,
+          2144
+        ],
+        [
+          172,
+          227,
+          419
+        ]
+      ]
+    }
+  },
+  "mlp": {
+    "val": {
+      "model": "MLP [val]",
+      "kappa": -0.0,
+      "macro_f1": 0.3232,
+      "f1_down": 0.0261,
+      "f1_flat": 0.8939,
+      "f1_up": 0.0497,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          12,
+          640,
+          33
+        ],
+        [
+          196,
+          6822,
+          325
+        ],
+        [
+          26,
+          458,
+          22
+        ]
+      ]
+    },
+    "test": {
+      "model": "MLP [test]",
+      "kappa": 0.0179,
+      "macro_f1": 0.3183,
+      "f1_down": 0.0372,
+      "f1_flat": 0.842,
+      "f1_up": 0.0756,
+      "classes_present": [
+        "down",
+        "flat",
+        "up"
+      ],
+      "confusion_matrix": [
+        [
+          27,
+          1169,
+          60
+        ],
+        [
+          134,
+          6086,
+          242
+        ],
+        [
+          35,
+          739,
+          44
+        ]
+      ]
+    }
+  }
+}

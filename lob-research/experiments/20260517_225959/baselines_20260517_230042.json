@@ -1,0 +1,106 @@
+{
+  "logistic_regression": {
+    "val": {
+      "model": "LogisticRegression [val]",
+      "kappa": 0.0173,
+      "macro_f1": 0.3307,
+      "f1_down": 0.4418,
+      "f1_flat": 0.1717,
+      "f1_up": 0.3787,
+      "confusion_matrix": [
+        [
+          1394,
+          916,
+          969
+        ],
+        [
+          492,
+          277,
+          371
+        ],
+        [
+          1146,
+          893,
+          1030
+        ]
+      ]
+    },
+    "test": {
+      "model": "LogisticRegression [test]",
+      "kappa": 0.0454,
+      "macro_f1": 0.3531,
+      "f1_down": 0.4446,
+      "f1_flat": 0.2008,
+      "f1_up": 0.4141,
+      "confusion_matrix": [
+        [
+          1337,
+          784,
+          1052
+        ],
+        [
+          448,
+          317,
+          429
+        ],
+        [
+          1057,
+          863,
+          1202
+        ]
+      ]
+    }
+  },
+  "mlp": {
+    "val": {
+      "model": "MLP [val]",
+      "kappa": 0.0272,
+      "macro_f1": 0.3173,
+      "f1_down": 0.4901,
+      "f1_flat": 0.0,
+      "f1_up": 0.4617,
+      "confusion_matrix": [
+        [
+          1772,
+          1,
+          1506
+        ],
+        [
+          638,
+          0,
+          502
+        ],
+        [
+          1542,
+          3,
+          1524
+        ]
+      ]
+    },
+    "test": {
+      "model": "MLP [test]",
+      "kappa": 0.0495,
+      "macro_f1": 0.3248,
+      "f1_down": 0.5068,
+      "f1_flat": 0.0,
+      "f1_up": 0.4675,
+      "confusion_matrix": [
+        [
+          1838,
+          2,
+          1333
+        ],
+        [
+          647,
+          0,
+          547
+        ],
+        [
+          1595,
+          1,
+          1526
+        ]
+      ]
+    }
+  }
+}
