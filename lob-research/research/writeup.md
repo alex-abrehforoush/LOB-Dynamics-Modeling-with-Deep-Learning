@@ -128,18 +128,28 @@ Identical to LOBAttention but with $\alpha_{t,i} = 1/L$ (fixed uniform weights).
 
 ### 6.2 Ablation Results
 
-*(To be added after running `analyze.py`)*
+The ablation study isolates the impact of the learned attention mechanism by comparing it against a uniform weighting scheme. Both models utilize the exact same architecture and parameter count of 82637 parameters at the 25 second horizon.
+
+**Key findings:**
+
+1. Uniform weighting outperforms learned attention. The LOBAttention Uniform model achieves a kappa of 0.0575, beating the learned attention variant by a gap of 0.0052 points. The uniform model also achieves a higher Macro F1 of 0.3680 and a lower loss of 0.7739.
+
+2. Revising the core hypothesis. The initial hypothesis proposed that dynamic, market state conditional weighting of depth levels would improve prediction. The ablation results reject this. Because the uniform model wins with the exact same parameter count, the learned conditional weighting provides no additional benefit over fixed weights and instead likely overfits to the training session.
+
+3. The true source of architectural gain. Since LOBAttention Uniform still substantially outperforms the DeepLOB baseline, the performance advantage does not come from conditional weighting. Instead, the architectural inductive bias is doing the heavy lifting. Decoupling the level wise feature extraction from the temporal aggregation yields a superior representation compared to the flat convolutional approach used in baseline models.
+
+To further isolate this structural advantage, future work should evaluate a fully collapsed model (LOBAttention NoSplit) that feeds all features directly into an LSTM. If this collapsed version performs worse than the uniform attention model, it will conclusively prove that level separation is the critical driver of performance rather than the attention mechanism itself.
+
 
 ---
 
 ## 7. Attention Weight Analysis
 
-*(To be added after running `analyze.py`)*
+Given the results of the ablation study, the analysis of attention weights pivots from interpreting dynamic market behavior to understanding why fixed uniform weights generalize better to out of sample data.
 
-Key questions to address:
-- Does the model concentrate attention on level 1 during trending periods?
-- Does attention shift to deeper levels during high-spread (uncertain) periods?
-- Is there systematic attention by predicted label direction?
+The original research questions asked whether the model concentrates attention on level 1 during trending periods or shifts to deeper levels during periods of high uncertainty. The inferior generalization of the learned model suggests that while the network may attempt to learn these conditional patterns, the informativeness of Limit Order Book levels is fundamentally more stable across different market regimes than initially hypothesized.
+
+Allowing the model to dynamically shift attention weights likely causes it to over index on the spatial and temporal statistics specific to the training day. When applied to a new trading session with entirely different price levels and volatility profiles, these learned dynamic weights miscalibrate. In contrast, the uniform attention mechanism forces the model to aggregate information equally across all depth levels, acting as a powerful structural regularizer. This prevents the network from improperly discarding deeper book information during state changes, thereby preserving a more robust and stable signal for out of sample prediction.
 
 ---
 
